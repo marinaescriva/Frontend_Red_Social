@@ -1,13 +1,13 @@
-.clink-design{
+.clink-desing{
 
     color:beige;
-    font-weight: light;
+    font-weight: bold;
 
-    margin: 1em;
+    margin: 3em;
 
     transition: 0.3s;
 }
-.clink-design:hover {
+.clink-desing:hover {
 
     color:darkkhaki;
     font-weight: bold;

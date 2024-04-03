@@ -1,7 +1,7 @@
 import "./Clink.css";
 import { useNavigate } from "react-router-dom";
 
-export const Clink = {(path, title)} => {
+export const Clink = ({path, title})=> {
 
     const navigate = useNavigate()
 
