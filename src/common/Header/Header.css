@@ -1,4 +1,4 @@
-.header-desing {
+.header-design {
 
     height: 12vh;
     width: 100vw;
@@ -9,4 +9,24 @@
     justify-content: flex-end;
     align-items: flex-end;
 
+}
+
+.navigator-design {
+    display: flex;
+    flex-direction: row;
+}
+
+.out-design {
+    color: white;
+    font-weight: bold;
+
+    margin: 1em;
+
+    transition: 0.3s;
+}
+
+.out-design:hover{
+    transition: 0.3s;
+    color: black;
+    cursor: pointer;
 }
