@@ -24,6 +24,3 @@ const persistedReducer = persistReducer(persistConfig, reducers);
         serializableCheck: false,
     }).concat(thunk),
     });
-
-
- })
