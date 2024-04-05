@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 export const Login = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [user, setUser] = useState({
 
@@ -41,7 +42,7 @@ export const Login = () => {
             dispatch(login({ credentials: passport }));
 
             setTimeout(() => {
-                navigate("/")
+                navigate("/feed")
             }, 500)
         }
     };
@@ -71,7 +72,7 @@ export const Login = () => {
             
 
             </div>
-            <button className="login-button" onClick={loginMe}>Login</button>
+            <button className="login-button" onClick={loginMe}></button>
 
         </div>
     )

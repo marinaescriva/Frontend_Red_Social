@@ -20,7 +20,7 @@ export const Profile = () => {
 
     return (
         <>
-            soy el perfil
+           <div className="profile-design">Soy el profile</div>
         </>
     )
 }

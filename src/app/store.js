@@ -8,7 +8,7 @@ import userSlice from "./slices/userSlice";
 import storage from "redux-persist/lib/storage";
 
 const reducers = combineReducers ({ //lo unico cambiable es añadir aqui
-    user: userSlice,
+    user: userSlice.reducer,
 });
 
 const persistConfig = {
@@ -17,6 +17,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
+
  export default configureStore({
     reducer: persistedReducer,
     middleware:(getDefaultMiddleware) =>

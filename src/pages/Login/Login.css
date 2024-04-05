@@ -14,33 +14,34 @@
 .login-pannel{
     background-color: rgba(255, 255, 255, 0.37);
     border-radius: 3em;
-    height: 22vh;
-    width: 47vw;
+    height: 24vh;
+    width: 16vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-/* .login-box{
-    margin: 1em;
-    align-items: center;
-    display: flex;
-    color:rgb(18, 74, 8);
-    background-color: whitesmoke;
-    border-radius: 2em;
-    
-} */
-.login-button{
 
-    background-color: blueviolet;
-    color: beige;
+.login-button{
+    /* background-color: blueviolet; */
+    width: 11vw;
+    height: 12vh;
+    background-color: #B2A77F;
     transition: 0.3s;
     margin-top: 2em;
+    /* Agregar imagen de fondo */
+    background-image: url('../../img/boton_login-06.png');
+    /* Ajustar tamaño y posición de la imagen */
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.login-button:hover{
 
-    background-color: rgb(221, 191, 248);
-    color: rgb(117, 16, 117);
+.login-button:hover{
+/* 
+    background-color: rgb(221, 191, 248); */
+    
     transition: 0.3s;
+    background-image: url('../../img/boton_login-07.png');
    
 }

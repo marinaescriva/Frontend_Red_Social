@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, logout } from "../../app/slices/userSlice";
 import { updateCriteria } from "../../app/slices/searchSlice";
 import { useEffect } from "react";
-import { Cinput } from '../Cinput/Cinput';
+// import { Cinput } from '../Cinput/Cinput';
 
 
 export const Header = () => {
@@ -23,9 +23,9 @@ export const Header = () => {
 
   const [criteria, setCriteria] = useState("")
 
-  // const searchHandler = (e) => {
-  //   setCriteria(e.target.value)
-  // }
+  const searchHandler = (e) => {
+    setCriteria(e.target.value)
+  }
 
   useEffect(() => {
     if (criteria !== "") {
@@ -35,31 +35,33 @@ export const Header = () => {
   }, [criteria])
 
   return (
-      <div className='header-design'>
-        <div className="header-center">
-          <div className="header-home-design">
-            <Clink path="/" title="Home" />
-          </div>
-        </div>
-        <div className="header-right">
-          {rdxUser?.credentials?.token ? (
-            <div>
-              <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
-              <div
-                className="out-design"
-                onClick={() => dispatch(logout({ credentials: "" }))}
-              >
-                log out
-              </div>
-            </div>
-          ) : (
-            <div className="header-login-register">
-              <Clink path="/login" title="Login" />
-              <Clink path="/register" title="Register" />
-            </div>
-          )}
+    <div className='header-design'>
+      <div className="header-center">
+        <div className="header-home-design">
+          <Clink path="/" title="Home" />
+
         </div>
       </div>
-    )
-    
-        }
+      <div className="header-right">
+        {rdxUser?.credentials?.token ? (
+          <div className="header-login-register">
+            <Clink path="/feed" title="Feed" />
+            <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
+
+            <div onClick={() => dispatch(logout({ credentials: "" }))}>
+              <Clink path="/" title={"Log out"} />
+            </div>
+
+          </div>
+
+        ) : (
+          <div className="header-login-register">
+            <Clink path="/login" title="Login" />
+            <Clink path="/register" title="Register" />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+
+}
