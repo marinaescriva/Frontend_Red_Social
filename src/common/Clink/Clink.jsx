@@ -6,6 +6,6 @@ export const Clink = ({path, title})=> {
     const navigate = useNavigate()
 
     return (
-        <div className= "clink-desing" onClick={() => navigate (path)}>{title}</div>
+        <div className= "clink-design" onClick={() => navigate (path)}>{title}</div>
     )
 }

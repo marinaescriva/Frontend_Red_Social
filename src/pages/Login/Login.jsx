@@ -49,23 +49,27 @@ export const Login = () => {
 
     return (
         <div className="login-desing">
-            <div className="login-box">
-                <Cinput
+            <div className='login-pannel'>
+
+          
+                <Cinput 
                     type="email"
                     name="email"
                     value={user.email || ""}
                     changeEmit={inputHandler}
 
                 />
-            </div>
-            <div className="login-box">
-                <Cinput
+          
+            
+                <Cinput 
                     type="password"
                     name="password"
                     value={user.password || ""}
                     changeEmit={inputHandler}
 
                 />
+            
+
             </div>
             <button className="login-button" onClick={loginMe}>Login</button>
 

@@ -2,7 +2,7 @@ import './Register.css'
 
 export const Register = () => {
     return (
-        <div className="register-desing"> soy register
+        <div className="register-design"> soy register
         
         </div>
     )

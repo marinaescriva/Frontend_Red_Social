@@ -1,15 +1,18 @@
-.clink-desing{
+.clink-design{
 
-    color:beige;
+    color: #B2A77F;
     font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
 
     margin: 3em;
-
+    cursor: pointer;
     transition: 0.3s;
 }
-.clink-desing:hover {
+.clink-design:hover {
 
-    color:darkkhaki;
+    color:#702553;
     font-weight: bold;
 
     transition: 0.3s;

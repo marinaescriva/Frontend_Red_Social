@@ -1,32 +1,29 @@
+/* Estilos para el header */
 .header-design {
-
     height: 12vh;
     width: 100vw;
-
-    background-color: rgb(24, 90, 34);
-
+    background-color:#C6C4B9;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-}
-
-.navigator-design {
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+  }
+  
+  /* Estilos para el contenedor central */
+  .header-center {
+    flex-grow: 1; /* Hace que el elemento ocupe todo el espacio restante */
+  }
+  
+  /* Estilos para el contenedor derecho */
+  .header-right {
     display: flex;
     flex-direction: row;
-}
-
-.out-design {
-    color: white;
-    font-weight: bold;
-
-    margin: 1em;
-
-    transition: 0.3s;
-}
-
-.out-design:hover{
-    transition: 0.3s;
-    color: black;
-    cursor: pointer;
-}
+    justify-content: flex-end; /* Alinea los elementos al final del contenedor */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-right: 10px; /* Ajusta el margen derecho */
+  }
+  .header-login-register{
+    
+        display: flex;
+      
+  }
+  
