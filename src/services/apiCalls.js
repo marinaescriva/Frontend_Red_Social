@@ -1,6 +1,6 @@
 const root = "http://localhost:4000/api/"
 
-export const loginService = async () => {
+export const loginService = async (user) => {
 
     const options = {
         method: "POST",

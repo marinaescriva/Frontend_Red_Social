@@ -23,9 +23,9 @@ export const Header = () => {
 
   const [criteria, setCriteria] = useState("")
 
-  const searchHandler = (e) => {
-    setCriteria(e.target.value)
-  }
+  // const searchHandler = (e) => {
+  //   setCriteria(e.target.value)
+  // }
 
   useEffect(() => {
     if (criteria !== "") {
@@ -37,12 +37,12 @@ export const Header = () => {
   return (
     <div className="header-design">
 
-      <Cinput
+      {/* <Cinput
         type="text"
         name="criteria"
         value={criteria || ""}
         changeEmit={searchHandler}
-      />
+      /> */}
 
       <Clink path="/" title="Home" />
       {rdxUser?.credentials?.token ? (

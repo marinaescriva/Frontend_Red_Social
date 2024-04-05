@@ -8,5 +8,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
+}
+.login-box{
+    margin: 1em;
+    align-items: center;
+    display: flex;
+}
+.login-button{
+
+    background-color: blueviolet;
+    color: beige;
+    transition: 0.3s;
+}
+.login-button:hover{
+
+    background-color: rgb(221, 191, 248);
+    color: rgb(117, 16, 117);
+    transition: 0.3s;
 }

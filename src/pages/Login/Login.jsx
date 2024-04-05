@@ -32,38 +32,42 @@ export const Login = () => {
         const fetched = await loginService(user)
         if (fetched.token) {
             const decodificado = decodeToken(fetched.token);
-      
+
             const passport = {
-              token: fetched.token,
-              user: decodificado,
+                token: fetched.token,
+                user: decodificado,
             };
-      
+
             dispatch(login({ credentials: passport }));
-      
-            setTimeout(()=> {
-              navigate("/")
+
+            setTimeout(() => {
+                navigate("/")
             }, 500)
-          }
-        };
-    
+        }
+    };
+
 
     return (
         <div className="login-desing">
-            <Cinput
-                type="email"
-                name="email"
-                value={user.email || ""}
-                changeEmit={inputHandler}
+            <div className="login-box">
+                <Cinput
+                    type="email"
+                    name="email"
+                    value={user.email || ""}
+                    changeEmit={inputHandler}
 
-            />
-            <Cinput
-                type="password"
-                name="password"
-                value={user.password || ""}
-                changeEmit={inputHandler}
+                />
+            </div>
+            <div className="login-box">
+                <Cinput
+                    type="password"
+                    name="password"
+                    value={user.password || ""}
+                    changeEmit={inputHandler}
 
-            />
-            <button onClick={loginMe}>Login</button>
+                />
+            </div>
+            <button className="login-button" onClick={loginMe}>Login</button>
 
         </div>
     )
