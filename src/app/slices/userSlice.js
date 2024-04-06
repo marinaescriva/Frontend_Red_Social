@@ -23,6 +23,7 @@ export const userSlice = createSlice({
 });
 
 export const { login, logout} = userSlice.actions;
+export const { register } = userSlice.actions;
 
 export const userData = (state) => state.user;
 

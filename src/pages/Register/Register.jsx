@@ -4,15 +4,18 @@ import { useNavigate } from "react-router-dom";
 import { useState} from 'react';
 import { registerService } from '../../services/apiCalls';
 import { Cinput } from '../../common/Cinput/Cinput';
-// import { CButton } from '../../common/CButton/CButton';
+import { decodeToken } from "react-jwt";
 
-
-// import { validation } from '../../utils/functions';
+import { register } from "../../app/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 
 export const Register = () => {
 
+    
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
 
     const [user, setUser] = useState({
         name: "",
@@ -42,28 +45,31 @@ export const Register = () => {
         )
     }
     
-    const checkError = (e) => {
+    // const checkError = (e) => {
 
-        const error = validation(e.target.name, e.target.value);
+    //     const error = validation(e.target.name, e.target.value);
 
-        setUserError((prevState) => ({
-            ...prevState,
-            [e.target.name + "Error"]: error,
-        }))
+    //     setUserError((prevState) => ({
+    //         ...prevState,
+    //         [e.target.name + "Error"]: error,
+    //     }))
 
-    }
+    
     
     const RegisterUser = async () => {
 
         try {
 
-            for (let element in user) {
-                if (user[element] === "") {
-                    throw new Error("All fields should be completed")
-                }
-            }
+            // for (let element in user) {
+            //     if (user[element] === "") {
+            //         throw new Error("All fields should be completed")
+            //     }
+            // }
             const fetched = await registerService(user);
             setMsgError(fetched.message);
+
+            // dispatch(Register({ user: passport }));
+
             setTimeout(() => { navigate("/login") }, 820) 
 
 
@@ -81,47 +87,35 @@ export const Register = () => {
                 <Cinput
                     type="text"
                     name="name"
+                    placeholder="name"
                     value={user.name || ""}
                     changeEmit={inputHandler}
                 />
                 <div className='error'>{userError.nameError}</div>
-                {/* <Cinput
-                    className={`custominputDesign ${credentialsError.surnameError !== "" ? "custominputDesignError" : ""}`}
-                    type={"text"}
-                    name={"surname"}
-                    value={credentials.surname || ""}
-                    placeholder={"surname"}
-                    disabled={""}
-                    functionChange={(e) => inputHandler(e)}
-                    functionBlur={(e) => checkError(e)}
-                />
-                <div className='error'>{credentialsError.surnameError}</div>
-                <Cinput
-                    className={`custominputDesign ${credentialsError.emailError !== "" ? "custominputDesignError" : ""}`}
-                    type={"email"}
-                    name={"email"}
-                    value={credentials.email || ""}
-                    placeholder={"email"}
-                    disabled={""}
-                    functionChange={(e) => inputHandler(e)}
-                    functionBlur={(e) => checkError(e)}
-                />
-                <div className='error'>{credentialsError.emailError}</div>
+               
+                
+                <Cinput 
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    value={user.email || ""}
+                    changeEmit={inputHandler}
 
-                <Cinput
-                    className={`custominputDesign ${credentialsError.passwordError !== "" ? "custominputDesignError" : ""}`}
-                    type={"password"}
-                    name={"password"}
-                    value={credentials.password || ""}
-                    placeholder={"password"}
-                    disabled={""}
-                    functionChange={(e) => inputHandler(e)}
-                    functionBlur={(e) => checkError(e)}
-                /> */}
+                />
+                <div className='error'>{userError.emailError}</div>
+
+                <Cinput 
+                    type="password"
+                    name="password"
+                    placeholder="passsword"
+                    value={user.password || ""}
+                    changeEmit={inputHandler}
+
+                />
                 <div className='error'>{userError.passwordError}</div>
 
                 <button
-                 className="login-button" onClick={RegisterUser}></button>
+                 className="register-button" onClick={RegisterUser}></button>
                 
                 <div className='error'>{msgError}</div>
             </div>
