@@ -18,7 +18,7 @@ export const Header = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(rdxUser, "passport credentials");
+    // console.log(rdxUser, "passport credentials");
   }, [rdxUser]);
 
   const [criteria, setCriteria] = useState("")

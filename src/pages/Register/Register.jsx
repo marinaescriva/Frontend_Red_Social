@@ -1,37 +1,35 @@
 import './Register.css'
 
 import { useNavigate } from "react-router-dom";
-import { useState} from 'react';
+import { useState } from 'react';
 import { registerService } from '../../services/apiCalls';
 import { Cinput } from '../../common/Cinput/Cinput';
-import { decodeToken } from "react-jwt";
 
-import { register } from "../../app/slices/userSlice";
-import { useDispatch } from "react-redux";
-
+import { doRegister, noRegister } from "../../app/slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Register = () => {
 
-    
-    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const register = useSelector(state => state.user.register);
+    const error = useSelector(state => state.user.error);
+    const [errorMessage, setErrorMessage] = useState("");
 
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         name: "",
-        surname: "",
         email: "",
         password: "",
     })
 
     const [userError, setUserError] = useState({
         nameError: "",
-        surnameError: "",
         emailError: "",
         passwordError: "",
 
     })
-
 
     const [msgError, setMsgError] = useState("");
 
@@ -44,38 +42,37 @@ export const Register = () => {
             })
         )
     }
-    
-    // const checkError = (e) => {
 
-    //     const error = validation(e.target.name, e.target.value);
-
-    //     setUserError((prevState) => ({
-    //         ...prevState,
-    //         [e.target.name + "Error"]: error,
-    //     }))
-
-    
-    
     const RegisterUser = async () => {
+
 
         try {
 
-            // for (let element in user) {
-            //     if (user[element] === "") {
-            //         throw new Error("All fields should be completed")
-            //     }
-            // }
+            if (user.password.length < 6 || user.password.length > 10) {
+
+                throw new Error("Password must contain between 6 and 10 characters")
+            }
+
+            for (let element in user) {
+                if (user[element] === "") {
+                    throw new Error("All fields should be completed")
+                }
+            }
+
             const fetched = await registerService(user);
+
+            if (!fetched.success) {
+                throw new Error(fetched.message);
+            }
+
             setMsgError(fetched.message);
 
-            // dispatch(Register({ user: passport }));
-
-            setTimeout(() => { navigate("/login") }, 820) 
-
+                dispatch(doRegister());
+                setTimeout(() => { navigate("/login") }, 820)
 
         } catch (error) {
-            setMsgError(error.message)
-            return;
+            setErrorMessage(error.message);
+            dispatch(noRegister(error.message))
         }
 
     }
@@ -83,41 +80,40 @@ export const Register = () => {
     return (
         <>
             <div className='register-design'>
-                {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
-                <Cinput
-                    type="text"
-                    name="name"
-                    placeholder="name"
-                    value={user.name || ""}
-                    changeEmit={inputHandler}
-                />
-                <div className='error'>{userError.nameError}</div>
-               
-                
-                <Cinput 
-                    type="email"
-                    name="email"
-                    placeholder="email"
-                    value={user.email || ""}
-                    changeEmit={inputHandler}
+                <div className='register-pannel'>
+                    <Cinput
+                        type="text"
+                        name="name"
+                        placeholder="name"
+                        value={user.name || ""}
+                        changeEmit={inputHandler}
+                    />
+                    <div className='error'>{userError.nameError}</div>
 
-                />
-                <div className='error'>{userError.emailError}</div>
+                    <Cinput
+                        type="email"
+                        name="email"
+                        placeholder="email"
+                        value={user.email || ""}
+                        changeEmit={inputHandler}
 
-                <Cinput 
-                    type="password"
-                    name="password"
-                    placeholder="passsword"
-                    value={user.password || ""}
-                    changeEmit={inputHandler}
+                    />
+                    <div className='error'>{userError.emailError}</div>
 
-                />
-                <div className='error'>{userError.passwordError}</div>
+                    <Cinput
+                        type="password"
+                        name="password"
+                        placeholder="passsword"
+                        value={user.password || ""}
+                        changeEmit={inputHandler}
 
+                    />
+                    <div className='error'>{userError.passwordError}</div>
+                </div>
                 <button
-                 className="register-button" onClick={RegisterUser}></button>
-                
-                <div className='error'>{msgError}</div>
+                    className="register-button" onClick={RegisterUser}></button>
+
+                <div className='error'>{errorMessage}</div>
             </div>
         </>
     )

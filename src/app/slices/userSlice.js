@@ -4,7 +4,8 @@ export const userSlice = createSlice({
 
     name:"user",
     initialState: {
-        Credentials: {}
+        Credentials: {},
+        isRegistered: false,
     },
     reducers: {
         login: (state,action) => {
@@ -19,11 +20,23 @@ export const userSlice = createSlice({
                 ...action.payload
             }
         },
+        doRegister: (state) =>{
+            return {
+                ...state,
+                isRegistered: true,
+            }
+        },
+        noRegister: (state , action) =>{
+            return {
+                ...state,
+                isRegistered: false,
+                error: action.payload
+            }
+        }
     }
 });
 
-export const { login, logout} = userSlice.actions;
-export const { register } = userSlice.actions;
+export const { login, logout, doRegister, noRegister} = userSlice.actions;
 
 export const userData = (state) => state.user;
 

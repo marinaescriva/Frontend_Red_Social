@@ -11,6 +11,11 @@
     flex-direction: column;
 
 }
+.error{
+
+    color:darkred;
+    font-weight: bold;
+}
 .login-pannel{
     background-color: rgba(255, 255, 255, 0.37);
     border-radius: 3em;

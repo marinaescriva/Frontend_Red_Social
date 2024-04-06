@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 
 export const Login = () => {
 
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -30,7 +31,14 @@ export const Login = () => {
     }
 
     const loginMe = async () => {
+
+        if (!user.email || !user.password) {
+            setErrorMessage("Invalid user credentials");
+        return;
+        }
+
         const fetched = await loginService(user)
+
         if (fetched.token) {
             const decodificado = decodeToken(fetched.token);
 
@@ -73,7 +81,7 @@ export const Login = () => {
 
             </div>
             <button className="login-button" onClick={loginMe}></button>
-
+            <div className="error">{errorMessage}</div>
         </div>
     )
 }
