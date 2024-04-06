@@ -15,7 +15,6 @@ export const Register = () => {
     const error = useSelector(state => state.user.error);
     const [errorMessage, setErrorMessage] = useState("");
 
-
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
