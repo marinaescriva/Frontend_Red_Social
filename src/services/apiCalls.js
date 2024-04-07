@@ -70,7 +70,7 @@ try {
         }
         return data.data;
     } catch (error) {
-        return error
+        return {error: true, message: error.message };
 
 }
 }

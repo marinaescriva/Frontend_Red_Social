@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 
 import { login } from "../../app/slices/userSlice";
+import { userData } from '../../app/slices/userSlice';
 import { useDispatch } from "react-redux";
 
 export const Login = () => {
+    console.log(userData)
 
     const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
