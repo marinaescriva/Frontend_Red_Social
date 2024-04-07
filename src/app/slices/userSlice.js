@@ -11,7 +11,8 @@ export const userSlice = createSlice({
         login: (state,action) => {
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
+                isRegistered: true,
             }
         },
         logout:(state, action) => {
