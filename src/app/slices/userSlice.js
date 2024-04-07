@@ -4,7 +4,7 @@ export const userSlice = createSlice({
 
     name:"user",
     initialState: {
-        Credentials: {},
+        credentials: {},
         isRegistered: false,
     },
     reducers: {

@@ -1,42 +1,44 @@
 .feed-design {
 
-        height: 88vh;
-        width: 100vw;
-    
-        background-color: #B2A77F;
-    
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
+    height: 88vh;
+    width: 100vw;
+
+    background-color: #B2A77F;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: scroll;
 
 }
 
-.feed-pannel{
+.feed-pannel {
 
     background-color: rgba(255, 255, 255, 0.37);
     border-radius: 3em;
-    height: 35vh;
-    width: 30vw;
+    height: 12vh;
+    width: 10vw;
 
     margin: 1em;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     padding: 1em;
 
-} 
+}
 
-.feed-img{
+.feed-img {
     /* background-color: blueviolet; */
-    width: 23vw;
-    height: 25vh;
-    background-color: #ffffff;
+    width: 2vw;
+    height: 2vh;
+    background-color: #e10c0c;
     margin-top: 2em;
     border-radius: 2em;
     transition: 0.2s;
+
 
     /* Agregar imagen de fondo */
     /* background-image: url('../../img/boton_login-06.png'); */
@@ -45,13 +47,15 @@
     background-position: center;
     background-repeat: no-repeat; */
 }
-.feed-img:hover{
+
+.feed-img:hover {
     /* background-color: blueviolet; */
     background-color: #ffffff9a;
     transition: 0.3s;
     margin-top: 2em;
     transition: 0.2s;
 
+
     /* Agregar imagen de fondo */
     /* background-image: url('../../img/boton_login-06.png'); */
     /* Ajustar tamaño y posición de la imagen */
@@ -59,7 +63,44 @@
     background-position: center;
     background-repeat: no-repeat; */
 }
-.feed-user{
+
+.feed-user {
     color: whitesmoke;
     font-weight: bold;
+}
+
+.feed-img2 {
+    /* background-color: blueviolet; */
+    width: 2vw;
+    height: 2vh;
+    background-color: #08a8a5;
+    margin-top: 2em;
+    border-radius: 2em;
+    transition: 0.2s;
+
+
+    /* Agregar imagen de fondo */
+    /* background-image: url('../../img/boton_login-06.png'); */
+    /* Ajustar tamaño y posición de la imagen */
+    /* background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+.feed-img3 {
+    /* background-color: blueviolet; */
+    width: 2vw;
+    height: 2vh;
+    background-color: #1db318;
+    margin-top: 2em;
+    border-radius: 2em;
+    transition: 0.2s;
+
+
+    /* Agregar imagen de fondo */
+    /* background-image: url('../../img/boton_login-06.png'); */
+    /* Ajustar tamaño y posición de la imagen */
+    /* background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat; */
 }
