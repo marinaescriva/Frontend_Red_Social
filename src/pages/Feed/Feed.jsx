@@ -41,9 +41,10 @@ export const Feed = () => {
           posts.map(post => {
             const arrayLikes = post.likes
             return (
-            <div className='feed-pannel'>
+            <div className='feed-pannel' key={post._id}>
               <div className='feed-img'>{post.title} </div>
               <div className='feed-img2'>{post.text} </div>
+              <div><img className='post-img' src={post.image} alt="post image"></img></div>
               <div className='feed-img3'>{arrayLikes.length} </div>
               <div className='feed-img4'>{post.nick.name} </div>
             </div>
