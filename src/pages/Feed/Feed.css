@@ -5,7 +5,7 @@
 
     background-color: #B2A77F;
 
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -17,7 +17,7 @@
 
     background-color: rgba(255, 255, 255, 0.37);
     border-radius: 3em;
-    height: 52vh;
+    height: 80vh;
     width: 60vw;
 
     margin: 1em;
@@ -26,23 +26,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding:initial;
 
 }
 .post-img{
 
-    width: 12vw;
+    width: 32vw;
+
+    padding: 1em;
+
 }
 
 .feed-img {
-    /* background-color: blueviolet; */
- 
-    color: #e10c0c;
-    margin-top: 2em;
+    color: #000000;
+    width: 52vw;
+    background-color: #b2a77f52;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
+   
     border-radius: 2em;
     transition: 0.2s;
 }
-
 
 .feed-user {
     color: whitesmoke;
@@ -50,37 +54,44 @@
 }
 
 .feed-img2 {
-    /* background-color: blueviolet; */
   
-    color: #08a8a5;
-    margin-top: 2em;
-    border-radius: 2em;
+    color: #000000;
+    width: 52vw;
+    background-color: #b2a77f52;
+    padding: 3em;
+
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11pt;
+
+    border-radius: 1em;
     transition: 0.2s;
-
-
-    /* Agregar imagen de fondo */
-    /* background-image: url('../../img/boton_login-06.png'); */
-    /* Ajustar tamaño y posición de la imagen */
-    /* background-size:contain;
-    background-position: center;
-    background-repeat: no-repeat; */
 }
 
 .feed-img3 {
-    /* background-color: blueviolet; */
 
-   color: #1db318;
-    margin-top: 2em;
+    color: #000000;
+    width: 52vw;
+    background-color: #b2a77f52;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15pt;
+
+   
     border-radius: 2em;
     transition: 0.2s;
 }
 
 
 .feed-img4 {
-    /* background-color: blueviolet; */
   
-    color: #0900bb;
-    margin-top: 2em;
+    color: #000000;
+    width: 52vw;
+    background-color: #b2a77f52;
+    text-align: justify;
+    padding: 1em;
+
+    
     border-radius: 2em;
     transition: 0.2s;
 }
