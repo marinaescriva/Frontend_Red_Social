@@ -6,23 +6,19 @@ import { userData } from '../../app/slices/userSlice';
 
 export const Feed = () => {
 
-// const dispatch = useDispatch();
-const state = useSelector(userData);
-const token = state.credentials.token || ({});
+  // const dispatch = useDispatch();
+  const state = useSelector(userData);
+  const token = state.credentials.token || ({});
 
 
-const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // console.log(state)
-    // console.log("el token" ,token)
     const fetchPosts = async () => {
 
       try {
-    
-        const fetched = await feedService(token)
 
-        // console.log("fetched data" , fetched.data)
+        const fetched = await feedService(token)
 
         setPosts(fetched);
 
@@ -31,33 +27,33 @@ const [posts, setPosts] = useState([]);
       }
     };
 
-    if(token){
+    if (token) {
       fetchPosts();
     }
 
   }, [token])
 
-  // console.log(posts)
-
   return (
     <div className='feed-design'>
       <h4>Your feed</h4>
-    <div>
-      {posts && posts.length > 0 ? (
-        posts.map(post => (
-          <div className='feed-pannel'>
-          <div key={post._id} className='feed-img'>
-            <div className='feed-img2'>{post.title} </div>
-            <div className='feed-img3'>{post.description} </div>
+      <div>
+        {posts && posts.length > 0 ? (
+          posts.map(post => {
+            const arrayLikes = post.likes
+            return (
+            <div className='feed-pannel'>
+              <div className='feed-img'>{post.title} </div>
+              <div className='feed-img2'>{post.text} </div>
+              <div className='feed-img3'>{arrayLikes.length} </div>
+              <div className='feed-img4'>{post.nick.name} </div>
+            </div>
+            )
+          })
 
-          </div>
-          </div>
-        ))
-       
-      ) : (
-        <div>No hay posts</div>
-      )}
-    </div>
+        ) : (
+          <div>No hay posts</div>
+        )}
+      </div>
     </div>
   );
 };
