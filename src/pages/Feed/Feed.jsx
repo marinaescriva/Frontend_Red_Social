@@ -6,7 +6,6 @@ import { userData } from '../../app/slices/userSlice';
 
 export const Feed = () => {
 
-  // const dispatch = useDispatch();
   const state = useSelector(userData);
   const token = state.credentials.token || ({});
 
@@ -19,7 +18,6 @@ export const Feed = () => {
       try {
 
         const fetched = await feedService(token)
-
         setPosts(fetched);
 
       } catch (error) {

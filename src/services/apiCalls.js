@@ -74,3 +74,28 @@ try {
 
 }
 }
+
+export const getMyOwnPost = async (token) => {
+
+    const options = {
+        method:"GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    }
+    try {
+        const response = await fetch(`${root}posts/own`, options);
+    
+            const data = await response.json();
+            console.log(data)
+            if (!data.success) {
+                throw new Error(data.message)
+            }
+            return data;
+        } catch (error) {
+            return {error: true, message: error.message };
+    
+    }
+
+}
