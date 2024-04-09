@@ -14,24 +14,23 @@ export const Profile = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    console.log("esto es my posts" , myPosts)
     if (!token) {
       navigate("/login")
     }
   }, [state])
 
   //////////////
-  const [loadedData, setLoadedData] = useState(false);
+  const [loadedData, setLoadedData] = useState(); //quite el false
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {
-
+    console.log(myPosts.length) // da 0 pero si tiene 1
 
     const getMyOwnPostInfo = async () => {
 
       try {
         const fetched = await getMyOwnPost(token)
-        setMyPosts(fetched.data) //?
+        setMyPosts(fetched) //? quite .data
         const newPosts = setMyPosts.data
       
       } catch (error) {
@@ -49,18 +48,19 @@ export const Profile = () => {
     <>
       <div className="profile-design">Soy el profile</div>
       <div>
-        {loadedData && posts.length > 0 
+        {loadedData && myPosts.length > 0 
+        
         ? (
-          posts.map(user => {
-            const arrayLikes = posts.likes
+          myPosts.map(post => {
+            const arrayLikes = post.likes
             
             return (
-              <div className='feed-pannel' key={user._id}>
-                <div className='feed-img'>{ } </div>
-                <div className='feed-img2'>{ } </div>
+              <div className='profile-pannel' key={post._id}>
+                <div className='feed-img'>{post.text} </div>
+                <div className='feed-img2'>{post.title } </div>
                 <div><img className='post-img' src={post.image} alt="post image"></img></div>
                 <div className='feed-img3'>{arrayLikes.length} </div>
-                <div className='feed-img4'>{user.name} </div>
+                <div className='feed-img4'>{post.nick} </div>
               </div>
             )
           })
