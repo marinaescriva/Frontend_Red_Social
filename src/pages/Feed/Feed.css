@@ -41,7 +41,7 @@
     background-color: #b2a77f52;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15pt;
+    font-size: 12pt;
    
     border-radius: 2em;
     transition: 0.2s;
@@ -86,8 +86,10 @@
     color: #000000;
     width: 52vw;
     background-color: #b2a77f52;
-    text-align: justify;
-    padding: 1em;
+  
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
 
     border-radius: 2em;
     transition: 0.2s;

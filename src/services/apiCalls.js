@@ -92,7 +92,7 @@ export const getMyOwnPost = async (token) => {
             if (!data.success) {
                 throw new Error(data.message)
             }
-            return data;
+            return data.data;
         } catch (error) {
             return {error: true, message: error.message };
     
