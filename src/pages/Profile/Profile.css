@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: scroll;
+  
 
 }
 
@@ -27,6 +27,7 @@
     flex-direction: column;
     align-items:center;
     justify-content:center;
+   
 
 }
 .profile-img{

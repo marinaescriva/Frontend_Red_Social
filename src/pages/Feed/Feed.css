@@ -9,8 +9,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow-x: scroll;
+    overflow-x: hidden;
 
+}
+
+.feed-pannel0{
+   
+    width: 50vw;
+    height:80vh ;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .feed-pannel {
@@ -26,6 +34,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+   
 
 }
 .post-img{

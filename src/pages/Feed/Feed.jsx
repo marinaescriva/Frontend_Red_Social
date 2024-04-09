@@ -33,13 +33,14 @@ export const Feed = () => {
 
   return (
     <div className='feed-design'>
-      <div className='feed-content'>
+      <div className='feed-pannel0'>
       <h4>Your feed</h4>
       <div>
         {posts && posts.length > 0 ? (
           posts.map(post => {
             const arrayLikes = post.likes
             return (
+              
             <div className='feed-pannel' key={post._id}>
               <div className='feed-img'>{post.title} </div>
               <div className='feed-img2'>{post.text} </div>
@@ -47,6 +48,7 @@ export const Feed = () => {
               <div className='feed-img3'>{arrayLikes.length} </div>
               <div className='feed-img4'>{post.nick.name} </div>
             </div>
+           
             )
           })
 
