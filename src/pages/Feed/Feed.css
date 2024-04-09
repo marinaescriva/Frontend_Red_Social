@@ -10,6 +10,7 @@
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
+    overflow-y: scroll;
     color:whitesmoke;
 
 }
@@ -28,7 +29,6 @@
     border-radius: 3em;
     min-height: 30vh;
     width: 40vw;
-   
 
     margin: 1em;
 

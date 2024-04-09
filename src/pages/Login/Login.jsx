@@ -65,6 +65,7 @@ export const Login = () => {
                 <Cinput 
                     type="email"
                     name="email"
+                    placeholder="email"
                     value={user.email || ""}
                     changeEmit={inputHandler}
 
@@ -74,6 +75,7 @@ export const Login = () => {
                 <Cinput 
                     type="password"
                     name="password"
+                    placeholder="passsword"
                     value={user.password || ""}
                     changeEmit={inputHandler}
 

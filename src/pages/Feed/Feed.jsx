@@ -44,7 +44,7 @@ export const Feed = () => {
             <div className='feed-pannel' key={post._id}>
               <div className='feed-img'>{post.title} </div>
               <div className='feed-img2'>{post.text} </div>
-              <div><img className='post-img' src={post.image} alt="post image"></img></div>
+              <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
               <div className='feed-img3'>{arrayLikes.length} </div>
               <div className='feed-img4'>{post.nick.name} </div>
             </div>
