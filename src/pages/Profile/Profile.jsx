@@ -59,9 +59,10 @@ export const Profile = () => {
           myPosts.map(post => {
             const arrayLikes = post.likes
             return (
-              <div className='profile-pannel' key={post._id}> AQUI ENTRA O NO??
+             
+              <div key={post._id} className='profile-pannel'>
                 <div className='profile-img'>{post.text} </div>
-                <div className='profile-img2'>{post.title } AQUI ENTRA O NO?? </div>
+                <div className='profile-img2'>{post.title }</div>
                 <div><img className='profile-img' src={post.image} alt="post image"></img></div>
                 <div className='profile-img3'>{arrayLikes.length} </div>
                 <div className='profile-img4'>{post.nick} </div>
@@ -73,6 +74,7 @@ export const Profile = () => {
           
           <div>No hay posts </div>
         )}
+        
       </div>
       </div>
     </>
