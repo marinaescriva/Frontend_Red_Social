@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 .error{
@@ -34,7 +35,7 @@
     transition: 0.3s;
     margin-top: 2em;
     /* Agregar imagen de fondo */
-    background-image: url('../../img/boton_login-06.png');
+    background-image: url('../../img/boton_register-08.png');
     /* Ajustar tamaño y posición de la imagen */
     background-size:contain;
     background-position: center;
@@ -46,6 +47,6 @@
     background-color: rgb(221, 191, 248); */
     
     transition: 0.3s;
-    background-image: url('../../img/boton_login-07.png');
+    background-image: url('../../img/boton_register-09.png');
    
 }

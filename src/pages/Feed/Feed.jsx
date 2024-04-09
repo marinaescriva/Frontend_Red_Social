@@ -33,7 +33,7 @@ export const Feed = () => {
 
   return (
     <div className='feed-design'>
-      <div className='feed-pannel0'>
+     
       <h4>Your feed</h4>
       <div>
         {posts && posts.length > 0 ? (
@@ -57,6 +57,6 @@ export const Feed = () => {
         )}
       </div>
     </div>
-    </div>
+   
   );
 };

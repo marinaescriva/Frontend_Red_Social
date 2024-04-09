@@ -10,16 +10,17 @@
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
+    color:whitesmoke;
 
 }
 
-.feed-pannel0{
+/* .feed-pannel0{
    
     width: 50vw;
     height:80vh ;
     overflow-y: scroll;
     overflow-x: hidden;
-}
+} */
 
 .feed-pannel {
 
@@ -27,6 +28,7 @@
     border-radius: 3em;
     min-height: 30vh;
     width: 40vw;
+   
 
     margin: 1em;
 
@@ -38,16 +40,16 @@
 
 }
 .post-img{
-
+    
     width: 20vw;
     padding: 1em;
 
 }
 
 .feed-img {
-    color: #000000;
-    width: 52vw;
-    background-color: #b2a77f52;
+    color:whitesmoke;
+    width: 32vw;
+    /* background-color: #b2a77f52; */
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12pt;
@@ -66,8 +68,8 @@
 .feed-img2 {
   
     color: #000000;
-    width: 52vw;
-    background-color: #b2a77f52;
+    width: 32vw;
+    /* background-color: #b2a77f52; */
     padding: 1em;
 
     text-align: center;
@@ -81,8 +83,8 @@
 .feed-img3 {
 
     color: #000000;
-    width: 52vw;
-    background-color: #b2a77f52;
+    width: 32vw;
+    /* background-color: #b2a77f52; */
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15pt;
@@ -96,8 +98,8 @@
 .feed-img4 {
   
     color: #000000;
-    width: 52vw;
-    background-color: #b2a77f52;
+    width: 32vw;
+    /* background-color: #b2a77f52; */
   
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
