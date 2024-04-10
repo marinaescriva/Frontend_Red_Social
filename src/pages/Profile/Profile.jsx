@@ -15,6 +15,7 @@ export const Profile = () => {
   const state = useSelector(userData);
   const token = state.credentials.token || ({});
   const [posts, setPosts] = useState([]);
+  const [loadedData, setLoadedData] = useState(true); //quite el false
 
   useEffect(() => {
     if (!token) {
@@ -34,11 +35,11 @@ export const Profile = () => {
         email:""
     })
 
-  //   const [userError, setUserError] = useState ({
-  //     nameError: "",
-  //     surnameError: "",
-  //     emailError:""
-  // })
+    const [userError, setUserError] = useState ({
+      nameError: "",
+      surnameError: "",
+      emailError:""
+  })
 
   const inputHandler = (e) => {
       setUser((prevState) => ({
@@ -47,14 +48,14 @@ export const Profile = () => {
       }));
   };
 
-  // const checkError = (e) => {
-  //   const error = validation(e.target.name, e.target.value);
+  const checkError = (e) => {
+    const error = validation(e.target.name, e.target.value);
 
-  //   setUserError((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name + "Error"]: error,
-  //   }));
-  // };
+    setUserError((prevState) => ({
+      ...prevState,
+      [e.target.name + "Error"]: error,
+    }));
+  };
 
 
   useEffect(() => {
@@ -69,8 +70,7 @@ export const Profile = () => {
 
 }, [token])
 
-
-
+useEffect(() => {
     const getmyProfile = async () => {
         try {
           console.log(token)
@@ -78,9 +78,8 @@ export const Profile = () => {
             console.log(fetched)
 
             setUser({
-                name: fetched.data.name,
-                email: fetched.data.email,
-                password: fetched.data.password
+                name: fetched.name,
+                email: fetched.email,
             })
 
             setLoadedData(true)
@@ -91,12 +90,12 @@ export const Profile = () => {
         }
     }
     getmyProfile ()
-
+  }, [token , loadedData])
 
 
   ////////////// TRAER MY POSTS
 
-  const [loadedData, setLoadedData] = useState(true); //quite el false
+  // const [loadedData, setLoadedData] = useState(true); //quite el false
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {
@@ -152,7 +151,7 @@ export const Profile = () => {
             value={user.name || ""}
             changeEmit={inputHandler}
           />
-          {/* <div className='error'>{userError.nameError}</div> */}
+         <div className='error'>{userError.nameError}</div>
 
           <Cinput
             type="email"
@@ -162,17 +161,8 @@ export const Profile = () => {
             changeEmit={inputHandler}
 
           />
-          {/* <div className='error'>{userError.emailError}</div> */}
+           <div className='error'>{userError.emailError}</div>
 
-          <Cinput
-            type="password"
-            name="password"
-            placeholder="passsword"
-            value={user.password || ""}
-            changeEmit={inputHandler}
-
-          />
-          {/* <div className='error'>{userError.passwordError}</div> */}
           </div>
         </>
         <div className="profile-cards">
