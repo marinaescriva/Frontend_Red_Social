@@ -125,3 +125,32 @@ try {
 
 }
 }
+
+export const myProfile = async (token) => {
+
+    const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+      }
+    
+      try {
+        const response = await fetch(`${root}users/profile`, options)
+        console.log(response)
+        const data = await response.json()
+        console.log(data)
+        console.log({token})
+    
+        if (!data.success) {
+          throw new Error(data.message)
+        }
+    
+        return data.data
+    
+      } catch (error) {
+        return error
+      }
+
+}

@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
+import {myProfile} from "../../services/apiCalls";
 
-import { getMyOwnPost, deletePost} from "../../services/apiCalls";
+import { getMyOwnPost, deletePost } from "../../services/apiCalls";
 import { CButton } from "../../common/Cbutton/Cbutton";
+import { Cinput } from '../../common/Cinput/Cinput';
 
 export const Profile = () => {
 
@@ -20,23 +22,91 @@ export const Profile = () => {
     }
   }, [state])
 
-  //////////////
+ //////////////TRAER MY PROFILE
+
+ const dataUser = JSON.parse(localStorage.getItem("passport"));
+    const [write, setWrite] = useState("disabled");
+  //   const [tokenStorage, setTokenStorage] = useState (dataUser?.token)
+  // console.log(dataUser)
+    const [user, setUser] = useState ({
+        name: "",
+        surname: "",
+        email:""
+    })
+
+  //   const [userError, setUserError] = useState ({
+  //     nameError: "",
+  //     surnameError: "",
+  //     emailError:""
+  // })
+
+  const inputHandler = (e) => {
+      setUser((prevState) => ({
+          ...prevState,
+          [e.target.name]: e.target.value
+      }));
+  };
+
+  // const checkError = (e) => {
+  //   const error = validation(e.target.name, e.target.value);
+
+  //   setUserError((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name + "Error"]: error,
+  //   }));
+  // };
+
+
+  useEffect(() => {
+
+    console.log(token)
+    // console.log(tokenStorage , "ESTO ES STORAGE da undefined")
+     
+    if(!token){
+        navigate("/") //esto era a home
+    /* redirect to home if you are not logged */
+    }
+
+}, [token])
+
+
+
+    const getmyProfile = async () => {
+        try {
+          console.log(token)
+            const fetched = await myProfile(token)
+            console.log(fetched)
+
+            setUser({
+                name: fetched.data.name,
+                email: fetched.data.email,
+                password: fetched.data.password
+            })
+
+            setLoadedData(true)
+
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
+    getmyProfile ()
+
+
+
+  ////////////// TRAER MY POSTS
+
   const [loadedData, setLoadedData] = useState(true); //quite el false
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {
-    console.log(myPosts.length, "esto es el length de myposts") // da 0 pero si tiene 1
-    console.log(token)
-    console.log(myPosts, "esto es myposts")
-
-    const getMyOwnPostInfo = async () => {
+   
+    const getMyOwnPostInfo = async (token) => {
 
 
       try {
         const fetched = await getMyOwnPost(token)
-        console.log(fetched, "esto es fetched")
-        console.log(myPosts)
-        console.log(loadedData)
+        
         setMyPosts(fetched) //? quite .data
         const newPosts = setMyPosts.data
 
@@ -44,33 +114,67 @@ export const Profile = () => {
         console.log(error)
       }
     }
-
+    
     if (token) {
-      getMyOwnPostInfo();
+      getMyOwnPostInfo(token);
     }
-  }, [token])
-
+  }, [])
 
 
   const deletingPosts = async (postId) => {
 
     try {
-        
-        const fetched = await deletePost(postId , token )
 
-        if (fetched.success){
-        setPosts(posts.filter(item => item._id !== postId))
+      const fetched = await deletePost(postId, token)
 
-        }
+      if (fetched.success) {
+        setMyPosts(posts.filter(item => item._id !== postId))
+
+        // const update = getMyOwnPost (fetched)
+        // setPosts(update)
+
+      }
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-}
+  }
 
 
   return (
     <>
       <div className="profile-design">Soy el profile
+        <> AQUI OTRA COSA PROFILE PERSONA
+        <div className="profile-cards">
+          <Cinput
+            type="text"
+            name="name"
+            placeholder="name"
+            value={user.name || ""}
+            changeEmit={inputHandler}
+          />
+          {/* <div className='error'>{userError.nameError}</div> */}
+
+          <Cinput
+            type="email"
+            name="email"
+            placeholder="email"
+            value={user.email || ""}
+            changeEmit={inputHandler}
+
+          />
+          {/* <div className='error'>{userError.emailError}</div> */}
+
+          <Cinput
+            type="password"
+            name="password"
+            placeholder="passsword"
+            value={user.password || ""}
+            changeEmit={inputHandler}
+
+          />
+          {/* <div className='error'>{userError.passwordError}</div> */}
+          </div>
+        </>
         <div className="profile-cards">
           {loadedData && myPosts.length > 0
 
