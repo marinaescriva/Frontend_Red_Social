@@ -163,6 +163,12 @@ useEffect(() => {
           />
            <div className='error'>{userError.emailError}</div>
 
+           <CButton
+                      className={'CButtonDesign'}
+                      title={`Update profile `}
+                      // functionEmit={() => deletingPosts(post._id)}
+                    />
+
           </div>
         </>
         <div className="profile-cards">
