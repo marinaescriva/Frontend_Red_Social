@@ -4,7 +4,7 @@ import { userData } from "../../app/slices/userSlice";
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 
-import { getMyOwnPost } from "../../services/apiCalls";
+import { getMyOwnPost, deletePost} from "../../services/apiCalls";
 import { CButton } from "../../common/Cbutton/Cbutton";
 
 export const Profile = () => {
@@ -28,6 +28,7 @@ export const Profile = () => {
     console.log(myPosts.length, "esto es el length de myposts") // da 0 pero si tiene 1
     console.log(token)
     console.log(myPosts, "esto es myposts")
+
     const getMyOwnPostInfo = async () => {
 
 
@@ -49,18 +50,22 @@ export const Profile = () => {
     }
   }, [token])
 
-//   const deletingAppointment = async (appointmentId) => {
-//     try {
-//         const fetched = await deleteAppointment(tokenStorage , appointmentId)
-//         console.log(fetched)
-//         if (fetched.success){
-//         setAppointments(appointments.filter(items => items.id !== appointmentId))
 
-//         }
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+
+  const deletingPosts = async (postId) => {
+
+    try {
+        
+        const fetched = await deletePost(postId , token )
+
+        if (fetched.success){
+        setPosts(posts.filter(item => item._id !== postId))
+
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
   return (
@@ -74,7 +79,7 @@ export const Profile = () => {
                 const arrayLikes = post.likes
                 return (
 
-                  <div key={post._id} className='profile-pannel'>
+                  <div key={post.id} className='profile-pannel'>
 
                     <div className='profile-img'>{post.text} </div>
                     <div className='profile-img2'>{post.title}</div>
