@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { feedService , feedUsers } from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
 import { Card } from '../../common/Ccard/Ccard';
+import { CardUser } from '../../common/CcardUser/CcardUser';
 
 export const Admin = () => {
 
@@ -52,6 +53,7 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                     const fetched = await feedUsers(token)
                     setUsers(fetched);
                     
+                    
                 } catch (error) {
                     console.log(error)
                 }
@@ -73,12 +75,12 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                         // const arrayLikes = user.likes
                         return (
                             <div>
-                            <Card
+                            <CardUser
                                 key={user._id}
-                                title={user.name}
-                                nick={user.email}
+                                name={user.name}
+                                email={user.email}
                             >
-                            </Card>
+                            </CardUser>
                             </div> 
                         )
                     })

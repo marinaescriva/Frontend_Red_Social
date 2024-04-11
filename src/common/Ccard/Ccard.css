@@ -24,8 +24,6 @@
 }
 .likeSection {
 
-    background-color: brown;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
