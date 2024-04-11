@@ -15,12 +15,14 @@ export const Admin = () => {
 
 console.log(state)
 
+if(state?.credentials?.user?.roleName !== "super_admin"){
+    setTimeout ( ()=>{
+        navigate("/")
+    })
+}
 
     useEffect(() => {
 
-        if(state?.credentials?.roleName !== "super_admin"){
-            navigate("/")
-        }
 
         if (state?.credentials?.user?.roleName === "super_admin") {
 
