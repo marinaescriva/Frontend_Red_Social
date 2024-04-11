@@ -182,3 +182,31 @@ export const updateProfile = async (token , newData) => {
       }
 
 }
+
+export const likeIt = async (postId , token) => {
+
+    const options = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        // body: JSON.stringify(newData)
+      }
+    
+      try {
+        const response = await fetch(`${root}posts/like/${postId}`, options)
+    
+        const data = await response.json()
+    
+        if (!data.success) {
+          throw new Error(data.message)
+        }
+    
+        return data.data
+    
+      } catch (error) {
+        return error
+      }
+
+}

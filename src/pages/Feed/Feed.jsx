@@ -1,7 +1,7 @@
 import './Feed.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { feedService } from "../../services/apiCalls";
+import { feedService, likeIt} from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
 
 export const Feed = () => {
@@ -31,6 +31,32 @@ export const Feed = () => {
 
   }, [token])
 
+  
+  const doLike = async (postId) => {
+
+    // if (!user.email || !user.password) {
+    //     setErrorMessage("Invalid user credentials");
+    // return;
+    // }
+
+    const fetched = await likeIt(postId , token)
+
+    if (fetched.token) {
+        const decodificado = decodeToken(fetched.token);
+
+        const passport = {
+            token: fetched.token,
+            user: decodificado,
+        };
+
+        dispatch(login({ credentials: passport }));
+
+        setTimeout(() => {
+            navigate("/profile")
+        }, 500)
+    }
+};
+
   return (
     <div className='feed-design'>
      
@@ -46,7 +72,7 @@ export const Feed = () => {
               <div className='feed-img2'>{post.text} </div>
               <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
               <div className='feed-img3'>{arrayLikes.length} </div>
-              <button className="like-button"></button>
+              <button className="like-button" onClick={doLike}></button>
               <div className='feed-img4'>{post.nick.name} </div>
             </div>
            
