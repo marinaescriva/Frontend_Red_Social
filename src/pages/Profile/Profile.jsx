@@ -3,11 +3,12 @@ import { useSelector } from "react-redux";
 import { userData } from "../../app/slices/userSlice";
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
-import {myProfile} from "../../services/apiCalls";
+import { myProfile, updateProfile } from "../../services/apiCalls";
 
 import { getMyOwnPost, deletePost } from "../../services/apiCalls";
 import { CButton } from "../../common/Cbutton/Cbutton";
 import { Cinput } from '../../common/Cinput/Cinput';
+import { validation } from "../../utils/functions";
 
 export const Profile = () => {
 
@@ -23,29 +24,29 @@ export const Profile = () => {
     }
   }, [state])
 
- //////////////TRAER MY PROFILE
+  //////////////TRAER MY PROFILE
 
- const dataUser = JSON.parse(localStorage.getItem("passport"));
-    const [write, setWrite] = useState("disabled");
+  const dataUser = JSON.parse(localStorage.getItem("passport"));
+  const [write, setWrite] = useState("disabled");
   //   const [tokenStorage, setTokenStorage] = useState (dataUser?.token)
   // console.log(dataUser)
-    const [user, setUser] = useState ({
-        name: "",
-        surname: "",
-        email:""
-    })
+  const [user, setUser] = useState({
+    name: "",
+    surname: "",
+    email: ""
+  })
 
-    const [userError, setUserError] = useState ({
-      nameError: "",
-      surnameError: "",
-      emailError:""
+  const [userError, setUserError] = useState({
+    nameError: "",
+    surnameError: "",
+    emailError: ""
   })
 
   const inputHandler = (e) => {
-      setUser((prevState) => ({
-          ...prevState,
-          [e.target.name]: e.target.value
-      }));
+    setUser((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }));
   };
 
   const checkError = (e) => {
@@ -62,36 +63,54 @@ export const Profile = () => {
 
     console.log(token)
     // console.log(tokenStorage , "ESTO ES STORAGE da undefined")
-     
-    if(!token){
-        navigate("/") //esto era a home
-    /* redirect to home if you are not logged */
+
+    if (!token) {
+      navigate("/") //esto era a home
+      /* redirect to home if you are not logged */
     }
 
-}, [token])
+  }, [token])
 
-useEffect(() => {
+  useEffect(() => {
     const getmyProfile = async () => {
-        try {
-          console.log(token)
-            const fetched = await myProfile(token)
-            console.log(fetched)
+      try {
+        console.log(token)
+        const fetched = await myProfile(token)
+        console.log(fetched)
 
-            setUser({
-                name: fetched.name,
-                email: fetched.email,
-            })
+        setUser({
+          name: fetched.name,
+          email: fetched.email,
+        })
 
-            setLoadedData(true)
+        setLoadedData(true)
 
-        } catch (error) {
-            console.log(error)
-            
-        }
+      } catch (error) {
+        console.log(error)
+
+      }
     }
-    getmyProfile ()
-  }, [token , loadedData])
+    getmyProfile()
+  }, [token, loadedData])
 
+
+  const updateData = async () => {
+
+    try {
+      const fetched = await updateProfile(token, user)
+      setUser((prevState) => ({
+        ...prevState,
+        name: fetched.name || prevState.name,
+        email: fetched.email || prevState.email
+      }));
+
+      setWrite("disabled")
+      console.log(prevState.name)
+      console.log(fetched.name) //aqui sale el nombre antiguo, no guarda la modificacion del nombre
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   ////////////// TRAER MY POSTS
 
@@ -99,13 +118,13 @@ useEffect(() => {
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {
-   
+
     const getMyOwnPostInfo = async (token) => {
 
 
       try {
         const fetched = await getMyOwnPost(token)
-        
+
         setMyPosts(fetched) //? quite .data
         const newPosts = setMyPosts.data
 
@@ -113,7 +132,7 @@ useEffect(() => {
         console.log(error)
       }
     }
-    
+
     if (token) {
       getMyOwnPostInfo(token);
     }
@@ -142,32 +161,36 @@ useEffect(() => {
   return (
     <>
       <div className="profile-design">Soy el profile
-        <> AQUI OTRA COSA PROFILE PERSONA
-        <div className="profile-cards">
-          <Cinput
-            type="text"
-            name="name"
-            placeholder="name"
-            value={user.name || ""}
-            changeEmit={inputHandler}
-          />
-         <div className='error'>{userError.nameError}</div>
+        <>
+          <div className="profile-cards">
+            <Cinput
+              type="text"
+              name="name"
+              placeholder="name"
+              value={user.name || ""}
+              disabled={write}
+              functionChange={(e) => inputHandler(e)}
+              functionBlur={(e) => checkError(e)}
+            />
+            <div className='error'>{userError.nameError}</div>
 
-          <Cinput
-            type="email"
-            name="email"
-            placeholder="email"
-            value={user.email || ""}
-            changeEmit={inputHandler}
+            <Cinput
+              type="email"
+              name="email"
+              placeholder="email"
+              value={user.email || ""}
+              disabled={"disabled"}
+              functionChange={(e) => inputHandler(e)}
+              functionBlur={(e) => checkError(e)}
 
-          />
-           <div className='error'>{userError.emailError}</div>
+            />
+            <div className='error'>{userError.emailError}</div>
 
-           <CButton
-                      className={'CButtonDesign'}
-                      title={`Update profile `}
-                      // functionEmit={() => deletingPosts(post._id)}
-                    />
+            <CButton
+              className={write === "" ? "CButtonDesign2 CButtonDesign" : "CButtonDesign"}
+              title={write === "" ? "Confirm" : "Edit"}
+              functionEmit={write === "" ? updateData : () => setWrite("")}
+            />
 
           </div>
         </>

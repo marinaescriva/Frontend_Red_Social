@@ -1,15 +1,17 @@
 import "./Cinput.css"
 
-export const Cinput = ({type, name, placeholder, value, changeEmit}) => {
+export const Cinput = ({type, name, value, placeholder, disabled , functionChange, functionBlur}) => {
 
     return (
         <input
         className="input-design"
         type={type}
         name={name}
-        placeholder={placeholder}
         value={value}
-        onChange={(e)=>changeEmit(e)}
+        placeholder={placeholder}
+        disabled={disabled}
+        onChange={functionChange}
+        onBlur={functionBlur}
     
         />
     )

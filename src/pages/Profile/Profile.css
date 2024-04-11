@@ -13,6 +13,10 @@
     overflow-x: hidden;
     overflow-y: scroll;
 }
+.disabled {
+
+    background-color: aqua;
+}
 /* 
 .profile-cards {
 
