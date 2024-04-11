@@ -10,7 +10,6 @@ export const Feed = () => {
   const state = useSelector(userData);
   const token = state.credentials.token || ({});
 
-
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -31,33 +30,12 @@ export const Feed = () => {
     }
 
   }, [token])
-
   
   const doLike = async (id) => {
     console.log(id , "el id")
 
     console.log(token)
-    // console.log(_id)
-  
-
-    const fetched = await likeIt(id , token) //orden ?
-
-
-      //   setTimeline(timeline.map(item => 
-      //     item._id === post._id 
-      //         ? {...item, likes: post.likes.includes(rdxUser.credentials.user.id) 
-      //             ? item.likes.filter(id => id !== rdxUser.credentials.user.id) 
-      //             : [...item.likes, rdxUser.credentials.user.id]
-      //         } 
-      //         : item
-      // ));
-
-   
-
-        // setTimeout(() => {
-        //     navigate("/profile")
-        // }, 500)
-    
+    const fetched = await likeIt(id , token)
 };
 
   return (

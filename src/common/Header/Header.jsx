@@ -13,7 +13,6 @@ import { useEffect } from "react";
 export const Header = () => {
   //Instancia de conexion a modo lectura
   const rdxUser = useSelector(userData);
-  // console.log(rdxUser , "redux user")
 
   //Instancia de conexion a modo escritura
   const dispatch = useDispatch();
@@ -50,7 +49,6 @@ export const Header = () => {
             <div className="header-login-register">
               <Clink path="/feed" title="Feed" />
               <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
-              {/* aqui poner admin */}
 
                {rdxUser?.credentials?.user?.roleName === "super_admin"
                 ? <Clink path="/admin" title="Super Admin" />
