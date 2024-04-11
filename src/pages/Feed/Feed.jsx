@@ -16,25 +16,19 @@ export const Feed = () => {
     const fetchPosts = async () => {
 
       try {
-
         const fetched = await feedService(token)
-        setPosts(fetched);
+        setPosts(fetched); 
 
       } catch (error) {
         console.log(error)
       }
     };
-
-    if (token) {
+    
       fetchPosts();
-    }
-
-  }, [token])
+    
+  }, [posts])
   
   const doLike = async (id) => {
-    console.log(id , "el id")
-
-    console.log(token)
     const fetched = await likeIt(id , token)
 };
 

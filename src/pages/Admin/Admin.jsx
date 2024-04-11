@@ -1,41 +1,44 @@
 import './Admin.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { feedService, likeIt} from "../../services/apiCalls";
+import { useNavigate } from "react-router-dom";
+import { feedService } from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
 import { Card } from '../../common/Ccard/Ccard';
 
 export const Admin = () => {
 
     const state = useSelector(userData);
-    const token = state.credentials.token;
-
+    const token = state.credentials.token || ({});
+    const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+
+console.log(state)
+
 
     useEffect(() => {
 
-        if(state?.credentials?.user?.roleName !== "super_admin"){
-            
-                navigate("/login")
-        
+        if(state?.credentials?.roleName !== "super_admin"){
+            navigate("/")
         }
-        const fetchPosts = async () => {
 
-            try {
+        if (state?.credentials?.user?.roleName === "super_admin") {
 
-                const fetched = await feedService(token)
-                setPosts(fetched);
+            const fetchPosts = async () => {
 
-                if (token) {
-                    fetchPosts();
+                try {
+                    const fetched = await feedService(token)
+                    setPosts(fetched);
+
+                } catch (error) {
+                    console.log(error)
                 }
-
-            } catch (error) {
-                console.log(error)
-            }
-        };
-
-    }, [token])
+            };
+           
+                fetchPosts();
+            
+        }
+    }, [posts])
 
     //enseñar los users
 
@@ -51,6 +54,7 @@ export const Admin = () => {
                     posts.map(post => {
                         const arrayLikes = post.likes
                         return (
+                            <div> ESTO QUE
 
                             <Card
                                 key={post._id}
@@ -58,10 +62,9 @@ export const Admin = () => {
                                 nick={post.nick.name}
                                 image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
                                 likes={arrayLikes.length}
-                                clickFunction={() => doLike(post._id)}
                             >
                             </Card>
-
+                            </div> 
                         )
                     })
 
