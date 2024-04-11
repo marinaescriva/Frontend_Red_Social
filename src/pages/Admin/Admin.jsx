@@ -1,6 +1,15 @@
 import './Admin.css';
 
-export const Admin = async() => {
+export const Admin = () => {
 
-    <div> ADDDMIN </div>
+
+//enseñar los users
+
+//enseñar posts
+
+
+
+return (
+    <div className='admin-design'> ADDDMIN </div>
+)
 }

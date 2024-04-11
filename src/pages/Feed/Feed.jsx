@@ -77,9 +77,8 @@ export const Feed = () => {
               image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
               likes={arrayLikes.length}
               clickFunction={() => doLike(post._id) }
-
               >
-                </Card>
+              </Card>
 
             // <div className='feed-pannel' key={post._id}>
             //   <div className='feed-img'>{post.title} </div>

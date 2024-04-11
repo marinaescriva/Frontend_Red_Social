@@ -13,6 +13,7 @@ import { useEffect } from "react";
 export const Header = () => {
   //Instancia de conexion a modo lectura
   const rdxUser = useSelector(userData);
+  // console.log(rdxUser , "redux user")
 
   //Instancia de conexion a modo escritura
   const dispatch = useDispatch();
@@ -43,24 +44,31 @@ export const Header = () => {
         </div>
       </div>
       <div className="header-right">
-        {rdxUser?.credentials?.token ? (
-          <div className="header-login-register">
-            <Clink path="/feed" title="Feed" />
-            <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
-            {/* aqui poner admin */}
-            <Clink path ="/admin" title="Admin"/>
-            <div onClick={() => dispatch(logout({ credentials: "" }))}>
-              <Clink path="/" title={"Log out"} />
+        {rdxUser?.credentials?.token
+
+          ? (
+            <div className="header-login-register">
+              <Clink path="/feed" title="Feed" />
+              <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
+              {/* aqui poner admin */}
+
+               {rdxUser?.credentials?.user?.roleName === "super_admin"
+                ? <Clink path="/admin" title="Super Admin" />
+                : null
+              }
+
+              <div onClick={() => dispatch(logout({ credentials: "" }))}>
+                <Clink path="/" title={"Log out"} />
+              </div>
+
             </div>
 
-          </div>
-
-        ) : (
-          <div className="header-login-register">
-            <Clink path="/login" title="Login" />
-            <Clink path="/register" title="Register" />
-          </div>
-        )}
+          ) : (
+            <div className="header-login-register">
+              <Clink path="/login" title="Login" />
+              <Clink path="/register" title="Register" />
+            </div>
+          )}
       </div>
     </div>
   )
