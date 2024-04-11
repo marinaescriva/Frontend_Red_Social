@@ -62,12 +62,9 @@ export const Profile = () => {
 
   useEffect(() => {
 
-    console.log(token)
-    // console.log(tokenStorage , "ESTO ES STORAGE da undefined")
-
     if (!token) {
-      navigate("/") //esto era a home
-      /* redirect to home if you are not logged */
+      navigate("/") 
+    
     }
 
   }, [token])
@@ -75,10 +72,9 @@ export const Profile = () => {
   useEffect(() => {
     const getmyProfile = async () => {
       try {
-        console.log(token)
+       
         const fetched = await myProfile(token)
-        console.log(fetched)
-
+    
         setUser({
           name: fetched.name,
           email: fetched.email,
@@ -105,7 +101,6 @@ export const Profile = () => {
       }
       const fetched = await updateProfile(token, updatedUser)
 
-      console.log(updatedUser)
       setUser((prevState) => ({
         ...prevState,
         name: fetched.name || prevState.name,
@@ -114,7 +109,6 @@ export const Profile = () => {
 
       setWrite("disabled")
 
-      console.log(fetched.name) //aqui sale el nombre antiguo, no guarda la modificacion del nombre
     } catch (error) {
       console.log(error.message);
     }

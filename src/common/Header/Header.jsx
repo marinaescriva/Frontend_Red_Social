@@ -47,7 +47,8 @@ export const Header = () => {
           <div className="header-login-register">
             <Clink path="/feed" title="Feed" />
             <Clink path="/profile" title={rdxUser?.credentials?.user?.name} />
-
+            {/* aqui poner admin */}
+            <Clink path ="/admin" title="Admin"/>
             <div onClick={() => dispatch(logout({ credentials: "" }))}>
               <Clink path="/" title={"Log out"} />
             </div>

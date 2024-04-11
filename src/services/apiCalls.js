@@ -88,7 +88,7 @@ export const getMyOwnPost = async (token) => {
         const response = await fetch(`${root}posts/own`, options);
     
             const data = await response.json();
-            console.log(data)
+         
             if (!data.success) {
                 throw new Error(data.message)
             }
@@ -138,11 +138,9 @@ export const myProfile = async (token) => {
     
       try {
         const response = await fetch(`${root}users/profile`, options)
-        console.log(response)
+      
         const data = await response.json()
-        console.log(data)
-        console.log({token})
-    
+     
         if (!data.success) {
           throw new Error(data.message)
         }
@@ -165,7 +163,7 @@ export const updateProfile = async (token , newData) => {
         },
         body: JSON.stringify(newData)
       }
-    
+     
       try {
         const response = await fetch(`${root}users/profile`, options)
     
@@ -183,7 +181,7 @@ export const updateProfile = async (token , newData) => {
 
 }
 
-export const likeIt = async (postId , token) => {
+export const likeIt = async (id , token) => {
 
     const options = {
         method: "PUT",
@@ -195,7 +193,7 @@ export const likeIt = async (postId , token) => {
       }
     
       try {
-        const response = await fetch(`${root}posts/like/${postId}`, options)
+        const response = await fetch(`${root}posts/like/${id}`, options)
     
         const data = await response.json()
     

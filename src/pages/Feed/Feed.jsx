@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { feedService, likeIt} from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
+import { Card } from '../../common/Ccard/Ccard';
 
 export const Feed = () => {
 
@@ -32,29 +33,31 @@ export const Feed = () => {
   }, [token])
 
   
-  const doLike = async (postId) => {
+  const doLike = async (id) => {
+    console.log(id , "el id")
 
-    // if (!user.email || !user.password) {
-    //     setErrorMessage("Invalid user credentials");
-    // return;
-    // }
+    console.log(token)
+    // console.log(_id)
+  
 
-    const fetched = await likeIt(postId , token)
+    const fetched = await likeIt(id , token) //orden ?
 
-    if (fetched.token) {
-        const decodificado = decodeToken(fetched.token);
 
-        const passport = {
-            token: fetched.token,
-            user: decodificado,
-        };
+      //   setTimeline(timeline.map(item => 
+      //     item._id === post._id 
+      //         ? {...item, likes: post.likes.includes(rdxUser.credentials.user.id) 
+      //             ? item.likes.filter(id => id !== rdxUser.credentials.user.id) 
+      //             : [...item.likes, rdxUser.credentials.user.id]
+      //         } 
+      //         : item
+      // ));
 
-        dispatch(login({ credentials: passport }));
+   
 
-        setTimeout(() => {
-            navigate("/profile")
-        }, 500)
-    }
+        // setTimeout(() => {
+        //     navigate("/profile")
+        // }, 500)
+    
 };
 
   return (
@@ -67,14 +70,27 @@ export const Feed = () => {
             const arrayLikes = post.likes
             return (
               
-            <div className='feed-pannel' key={post._id}>
-              <div className='feed-img'>{post.title} </div>
-              <div className='feed-img2'>{post.text} </div>
-              <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
-              <div className='feed-img3'>{arrayLikes.length} </div>
-              <button className="like-button" onClick={doLike}></button>
-              <div className='feed-img4'>{post.nick.name} </div>
-            </div>
+              <Card 
+              key={post._id}
+              title={post.title}
+              nick={post.nick.name}
+              image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
+              likes={arrayLikes.length}
+              clickFunction={() => doLike(post._id) }
+
+              >
+                </Card>
+
+            // <div className='feed-pannel' key={post._id}>
+            //   <div className='feed-img'>{post.title} </div>
+            //   <div className='feed-img2'>{post.text} </div>
+            //   <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
+            //   <div className='feed-img3'>{arrayLikes.length} </div>
+
+            //   <button className="like-button" onClick={doLike(post._id)}></button>
+
+            //   <div className='feed-img4'>{post.nick.name} </div>
+            // </div>
            
             )
           })
