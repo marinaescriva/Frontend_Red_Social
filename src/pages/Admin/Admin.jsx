@@ -2,7 +2,7 @@ import './Admin.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { feedService } from "../../services/apiCalls";
+import { feedService , feedUsers } from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
 import { Card } from '../../common/Ccard/Ccard';
 
@@ -12,8 +12,7 @@ export const Admin = () => {
     const token = state.credentials.token || ({});
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
-
-console.log(state)
+    const [users, setUsers] =  useState([]);
 
 if(state?.credentials?.user?.roleName !== "super_admin"){
     setTimeout ( ()=>{
@@ -42,9 +41,26 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
         }
     }, [posts])
 
-    //enseñar los users
+    useEffect(() => {
 
-    //enseñar posts
+
+        if (state?.credentials?.user?.roleName === "super_admin") {
+
+            const fetchUsers = async () => {
+
+                try {
+                    const fetched = await feedUsers(token)
+                    setUsers(fetched);
+                    
+                } catch (error) {
+                    console.log(error)
+                }
+            };
+           
+                fetchUsers();
+            
+        }
+    }, [users])
 
 
 
@@ -52,11 +68,31 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
         <div className='admin-design'> ADDDMIN
             <h4>Your feed</h4>
             <div>
+                {users && users.length > 0 ? (
+                    users.map(user => {
+                        // const arrayLikes = user.likes
+                        return (
+                            <div>
+                            <Card
+                                key={user._id}
+                                title={user.name}
+                                nick={user.email}
+                            >
+                            </Card>
+                            </div> 
+                        )
+                    })
+                ) : (
+                    <div>No hay posts</div>
+                )}
+
+            </div>
+            <div>
                 {posts && posts.length > 0 ? (
                     posts.map(post => {
                         const arrayLikes = post.likes
                         return (
-                            <div> ESTO QUE
+                            <div>
 
                             <Card
                                 key={post._id}
@@ -69,7 +105,6 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                             </div> 
                         )
                     })
-
                 ) : (
                     <div>No hay posts</div>
                 )}

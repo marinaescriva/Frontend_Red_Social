@@ -208,3 +208,28 @@ export const likeIt = async (id , token) => {
       }
 
 }
+
+export const feedUsers = async (token) => {
+
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+    }
+
+try {
+    const response = await fetch(`${root}users`, options);
+
+        const data = await response.json();
+        
+        if (!data.success) {
+            throw new Error(data.message)
+        }
+        return data.data;
+    } catch (error) {
+        return {error: true, message: error.message };
+
+}
+}
