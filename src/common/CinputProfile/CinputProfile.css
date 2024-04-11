@@ -1,0 +1,8 @@
+.input-design-profile{
+    margin: 1em;
+    align-items: center;
+    display: flex;
+    color:rgb(18, 74, 8);
+    background-color: whitesmoke;
+    border-radius: 2em;
+}

@@ -7,7 +7,7 @@ import { myProfile, updateProfile } from "../../services/apiCalls";
 
 import { getMyOwnPost, deletePost } from "../../services/apiCalls";
 import { CButton } from "../../common/Cbutton/Cbutton";
-import { Cinput } from '../../common/Cinput/Cinput';
+import { CinputProfile } from '../../common/CinputProfile/CinputProfile';
 import { validation } from "../../utils/functions";
 
 export const Profile = () => {
@@ -171,7 +171,7 @@ export const Profile = () => {
       <div className="profile-design">Soy el profile
         <>
           <div className="profile-cards">
-            <Cinput
+            <CinputProfile
               type="text"
               name="name"
               placeholder="name"
@@ -182,7 +182,7 @@ export const Profile = () => {
             />
             <div className='error'>{userError.nameError}</div>
 
-            <Cinput
+            <CinputProfile
               type="email"
               name="email"
               placeholder="email"
