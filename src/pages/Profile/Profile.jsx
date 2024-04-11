@@ -43,9 +43,10 @@ export const Profile = () => {
   })
 
   const inputHandler = (e) => {
+    const { name , value} = e.target;
     setUser((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
 
@@ -97,7 +98,14 @@ export const Profile = () => {
   const updateData = async () => {
 
     try {
-      const fetched = await updateProfile(token, user)
+      
+      const updatedUser = {
+        ...user,
+        name: user.name
+      }
+      const fetched = await updateProfile(token, updatedUser)
+
+      console.log(updatedUser)
       setUser((prevState) => ({
         ...prevState,
         name: fetched.name || prevState.name,
@@ -105,7 +113,7 @@ export const Profile = () => {
       }));
 
       setWrite("disabled")
-      console.log(prevState.name)
+
       console.log(fetched.name) //aqui sale el nombre antiguo, no guarda la modificacion del nombre
     } catch (error) {
       console.log(error.message);
