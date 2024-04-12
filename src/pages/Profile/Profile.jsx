@@ -7,12 +7,15 @@ import { myProfile, updateProfile } from "../../services/apiCalls";
 
 import { getMyOwnPost, deletePost } from "../../services/apiCalls";
 import { CButton } from "../../common/Cbutton/Cbutton";
+// import { CButtonCreate } from "../../common/CbutttonCreate/CbuttonCreate";
 import { CinputProfile } from '../../common/CinputProfile/CinputProfile';
 import { validation } from "../../utils/functions";
+import { ClinkPost } from "../../common/Clink/Clink";
 
 export const Profile = () => {
 
   const navigate = useNavigate();
+
   const state = useSelector(userData);
   const token = state.credentials.token || ({});
   const [posts, setPosts] = useState([]);
@@ -23,6 +26,9 @@ export const Profile = () => {
       navigate("/login")
     }
   }, [state])
+
+
+
 
   //////////////TRAER MY PROFILE
 
@@ -162,7 +168,12 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="profile-design">Soy el profile
+      <div className="profile-design">
+
+      <ClinkPost 
+      path={"/post"}
+      title={"new post"}>
+      </ClinkPost>
         <>
           <div className="profile-cards">
             <CinputProfile

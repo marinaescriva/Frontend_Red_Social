@@ -2,7 +2,8 @@ import "./CcardUser.css";
 
 export const CardUser = ({
   name,
-  email
+  email,
+  deleteFunction
   
 }) => {
 
@@ -12,6 +13,9 @@ export const CardUser = ({
 
       <div className="user_2">{name}</div>
       <div className="user_3">{email}</div>
+      <div> 
+      <div className="delete-button" onClick={() => deleteFunction}> </div>
+      </div>
 
     </div>
 

@@ -19,3 +19,24 @@
     cursor: pointer;
 
 }
+.clink-design-post{
+    color: #1ae30b;
+    font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 3em;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+.clink-design-post:hover {
+
+    color:#00469b;
+    font-weight: bold;
+
+    transition: 0.3s;
+    cursor: pointer;
+
+}

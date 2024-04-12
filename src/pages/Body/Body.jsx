@@ -5,6 +5,7 @@ import { Register } from "../Register/Register";
 import { Feed } from "../Feed/Feed";
 import { Profile } from "../Profile/Profile";
 import { Admin } from "../Admin/Admin";
+import { Post } from "../Post/Post";
 
 export const Body = () => {
     return (
@@ -16,7 +17,7 @@ export const Body = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/admin" element={<Admin/>} />
-
+            <Route path="/post" element={<Post/>} />
         </Routes>
     )
 }

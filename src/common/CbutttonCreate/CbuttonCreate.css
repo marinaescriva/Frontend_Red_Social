@@ -1,0 +1,46 @@
+.CButtonDesign {
+
+    height: 4em;
+    width: 10em;
+
+    border-radius: 5em;
+    margin: 1em;
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(103,59,35);
+    font-weight: bold;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.4;
+
+}
+
+.CButtonDesign:hover {
+
+    background-color: rgb(103,59,35);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.4;
+}
+.CButtonDesign2 {
+
+    height: 4em;
+    width: 10em;
+
+    border-radius: 5em;
+    margin: 1em;
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(103,59,35);
+    font-weight: bold;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.4;
+
+}

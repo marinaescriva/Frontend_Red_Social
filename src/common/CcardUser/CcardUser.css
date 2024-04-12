@@ -10,11 +10,11 @@
 }
 
 .feed-pannel2 {
-/* 
-    background-color: rgb(190, 23, 23); */
+ 
+    background-color: rgba(165, 118, 46, 0.379); 
     border-radius: 3em;
     min-height: 30vh;
-    width: 40vw;
+    width: 60vw;
 
     margin: 1em;
 
@@ -30,6 +30,7 @@
 
     width: 22vw;
     padding: 0.3em;
+  
    
 }
 
@@ -37,7 +38,7 @@
   
     color: #000000;
     background-color: cadetblue;
-    width: 32vw;
+    width: auto;
     /* background-color: #b2a77f52; */
     padding: 1em;
 
@@ -52,8 +53,8 @@
 .user_3{
   
     color: #000000;
-    background-color: rgb(203, 166, 0);
-    width: 32vw;
+    background-color: rgba(83, 76, 42, 0.769);
+    width: auto;
     /* background-color: #b2a77f52; */
   
     text-align: center;
@@ -75,4 +76,29 @@
    
     border-radius: 2em;
     transition: 0.2s;
+}
+.delete-button{
+    /* background-color: blueviolet; */
+    width: 11vw;
+    height: 12vh;
+    background-color: #b2a77f00;
+    border-color: #b2a77f00;
+    transition: 0.3s;
+    margin-top: 2em;
+    /* Agregar imagen de fondo */
+    background-image: url('../../img/predelete.png');
+    
+    /* Ajustar tamaño y posición de la imagen */
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.delete-button:hover{
+/* 
+    background-color: rgb(221, 191, 248); */
+    
+    transition: 0.3s;
+    background-image: url('../../img/deleted.png');
+  
 }

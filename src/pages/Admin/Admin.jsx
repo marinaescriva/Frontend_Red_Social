@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { feedService , feedUsers } from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
-import { Card } from '../../common/Ccard/Ccard';
 import { CardUser } from '../../common/CcardUser/CcardUser';
+import { CardAdmin } from '../../common/Cadmin/Cadmin';
 
 export const Admin = () => {
 
@@ -64,6 +64,43 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
         }
     }, [users])
 
+    
+  const deletingPosts = async (postId) => {  // is not functional yet
+
+    try {
+
+      const fetched = await deletePost(postId, token)
+
+      if (fetched.success) {
+        setMyPosts(posts.filter(item => item._id !== postId))
+
+        // const update = getMyOwnPost (fetched)
+        // setPosts(update)
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const deletingUsers = async (postId) => { // is not functional yet
+
+    try {
+
+      const fetched = await deletePost(postId, token)
+
+      if (fetched.success) {
+        setMyPosts(posts.filter(item => item._id !== postId))
+
+        // const update = getMyOwnPost (fetched)
+        // setPosts(update)
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
 
     return (
@@ -79,6 +116,7 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                                 key={user._id}
                                 name={user.name}
                                 email={user.email}
+                                deleteFunction={deletingUsers}
                             >
                             </CardUser>
                             </div> 
@@ -96,14 +134,15 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                         return (
                             <div>
 
-                            <Card
+                            <CardAdmin
                                 key={post._id}
                                 title={post.title}
                                 nick={post.nick.name}
                                 image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
                                 likes={arrayLikes.length}
+                                deleteFunction={deletingPosts}
                             >
-                            </Card>
+                            </CardAdmin>
                             </div> 
                         )
                     })
