@@ -12,15 +12,32 @@
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
+
 }
 
 .like-button:hover{
 /* 
     background-color: rgb(221, 191, 248); */
-    
+    cursor:pointer;
     transition: 0.3s;
     background-image: url('../../img/boton_likes-10.png');
    
+}
+.detail-button{
+    width: 11vw;
+    height: 12vh;
+    background-image: url('../../img/detailOff.png');
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #b2a77f00;
+    border-color: #b2a77f00;
+    transition: 0.3s;
+    margin-top: 2em;
+}
+.detail-button:hover{
+    background-image: url('../../img/detailOn.png');
+    cursor:pointer;
 }
 .likeSection {
 

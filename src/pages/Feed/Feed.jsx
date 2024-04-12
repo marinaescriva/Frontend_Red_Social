@@ -1,6 +1,7 @@
 import './Feed.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { feedService, likeIt} from "../../services/apiCalls";
 import { userData } from '../../app/slices/userSlice';
 import { Card } from '../../common/Ccard/Ccard';
@@ -9,7 +10,7 @@ export const Feed = () => {
 
   const state = useSelector(userData);
   const token = state.credentials.token || ({});
-
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -32,6 +33,10 @@ export const Feed = () => {
     const fetched = await likeIt(id , token)
 };
 
+const goDetail = (postId) => {
+ navigate(`posts/${postId}`)
+}
+
   return (
     <div className='feed-design'>
      
@@ -49,19 +54,9 @@ export const Feed = () => {
               image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
               likes={arrayLikes.length}
               clickFunction={() => doLike(post._id) }
+              detailFunction={()=> goDetail(post._id)}
               >
               </Card>
-
-            // <div className='feed-pannel' key={post._id}>
-            //   <div className='feed-img'>{post.title} </div>
-            //   <div className='feed-img2'>{post.text} </div>
-            //   <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
-            //   <div className='feed-img3'>{arrayLikes.length} </div>
-
-            //   <button className="like-button" onClick={doLike(post._id)}></button>
-
-            //   <div className='feed-img4'>{post.nick.name} </div>
-            // </div>
            
             )
           })
