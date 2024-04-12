@@ -23,10 +23,10 @@
     background-image: url('../../img/boton_likes-10.png');
    
 }
-.detail-button{
+.detail-button-feed{
     width: 11vw;
     height: 12vh;
-    background-image: url('../../img/detailOff.png');
+    background-image: url('../../img/detailOntoOFF.png');
     background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,8 +35,8 @@
     transition: 0.3s;
     margin-top: 2em;
 }
-.detail-button:hover{
-    background-image: url('../../img/detailOn.png');
+.detail-button-feed:hover{
+    background-image: url('../../img/detailOfftoOn.png');
     cursor:pointer;
 }
 .likeSection {

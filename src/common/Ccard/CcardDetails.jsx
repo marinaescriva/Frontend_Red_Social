@@ -24,7 +24,7 @@ export const CardDetail = ({
       </div>
       
       <div> 
-      <div className="like-button" onClick={() => clickFunction()}></div>
+      <div className="detail-button-feed" onClick={() => clickFunction()}></div>
       </div>
 
       </div>
