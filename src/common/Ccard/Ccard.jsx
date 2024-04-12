@@ -7,23 +7,27 @@ export const Card = ({
   ownerId,
   likes,
   clickFunction,
+  detailFunction
 }) => {
 
   return (
-    <div className="feed-pannel" onClick={clickFunction}>
+    <div className="feed-pannel">
      
       <div className="feed-img">{title}</div>
       <div className="feed-img4">{nick}</div>
       <div className="feed-img2">{description}</div>
       <div className="profile-img">{image}</div>
+      <button className="like-button" onClick={() => detailFunction()}> </button>
+
       <div className="likeSection">
         <div>Likes:</div>
         <div>{likes}</div>
       </div>
+      
       <div> 
-      <div className="like-button" onClick={() => clickFunction}>
-        </div>
+      <div className="like-button" onClick={() => clickFunction()}></div>
       </div>
-    </div>
+
+      </div>
 
         )}
