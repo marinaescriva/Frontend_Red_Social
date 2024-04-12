@@ -1,19 +1,20 @@
+import { CinputProfile } from "../../common/CinputProfile/CinputProfile";
 import "./Post.css"
 
 export const Post = () => {
 
     
-    const [newPosts, setNewPosts] = useState([]);
+    // const [newPosts, setNewPosts] = useState([]);
 
-    const inputHandler = (e) => {
+    // const inputHandler = (e) => {
 
-        setUser((prevState) => ({
+    //     setUser((prevState) => ({
 
-            ...prevState,
-            [e.target.name]: e.target.value
+    //         ...prevState,
+    //         [e.target.name]: e.target.value
 
-        }))
-    }
+    //     }))
+    // }
 
 
     return (
@@ -21,20 +22,20 @@ export const Post = () => {
             <div className='post-pannel'>
 
 
-                <Cinput
+                <CinputProfile
                     type="text"
                     name="title"
                     placeholder="title"
-                    value={post.title || ""}
+                    // value={post.title || ""}
                     // changeEmit={inputHandler}
 
                 />
 
-                <Cinput
+                <CinputProfile
                     type="password"
                     name="password"
                     placeholder="passsword"
-                    value={user.password || ""}
+                    // value={user.password || ""}
                     // changeEmit={inputHandler}
 
                 />
@@ -42,7 +43,7 @@ export const Post = () => {
 
             </div>
             {/* <button className="login-button" onClick={loginMe}></button> */}
-            <div className="error">{errorMessage}</div>
+            {/* <div className="error">{errorMessage}</div> */}
 
         </div>
     )
