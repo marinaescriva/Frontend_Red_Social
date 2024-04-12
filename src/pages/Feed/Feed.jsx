@@ -34,7 +34,7 @@ export const Feed = () => {
 };
 
 const goDetail = (postId) => {
- navigate(`posts/${postId}`)
+ navigate(`/posts/${postId}`)
 }
 
   return (

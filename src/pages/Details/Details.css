@@ -1,0 +1,14 @@
+.Details-design{
+    height: 88vh;
+    width: 100vw;
+
+    background-color: #B2A77F;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color:whitesmoke;
+}

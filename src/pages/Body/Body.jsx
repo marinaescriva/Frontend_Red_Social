@@ -6,6 +6,7 @@ import { Feed } from "../Feed/Feed";
 import { Profile } from "../Profile/Profile";
 import { Admin } from "../Admin/Admin";
 import { Post } from "../Post/Post";
+import { Detail } from "../Details/Details";
 
 export const Body = () => {
     return (
@@ -18,6 +19,7 @@ export const Body = () => {
             <Route path="/feed" element={<Feed />} />
             <Route path="/admin" element={<Admin/>} />
             <Route path="/post" element={<Post/>} />
+            <Route path="/posts/:postId" element={<Detail/>} />
         </Routes>
     )
 }
