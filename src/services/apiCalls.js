@@ -233,3 +233,28 @@ try {
 
 }
 }
+
+export const createPost = async (token, newData) => {
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(newData)
+    };
+
+    try {
+       
+        const response = await fetch(`${root}posts`, options);
+        const responseData = await response.json();
+
+        if (!responseData.success) {
+            throw new Error(responseData.message);
+        }
+
+        return responseData;
+    } catch (error) {
+        return { success: false, message: error.message };
+    }
+}
