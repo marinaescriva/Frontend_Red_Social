@@ -3,9 +3,8 @@ import "./CcardDetails.css";
 export const CardDetail = ({
   title,
   nick,
+  text,
   image,
-  description,
-  ownerId,
   likes,
   clickFunction,
 }) => {
@@ -15,7 +14,7 @@ export const CardDetail = ({
      
       <div className="feed-img">{title}</div>
       <div className="feed-img4">{nick}</div>
-      <div className="feed-img2">{description}</div>
+      <div className="feed-img2">{text}</div>
       <div className="profile-img">{image}</div>
 
       <div className="likeSection">

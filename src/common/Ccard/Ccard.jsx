@@ -2,9 +2,8 @@ import "./Ccard.css";
 export const Card = ({
   title,
   nick,
-  image,
   text,
-  ownerId,
+  image,
   likes,
   clickFunction,
   detailFunction
@@ -20,7 +19,7 @@ export const Card = ({
       <button className="detail-button" onClick={() => detailFunction()}> </button>
 
       <div className="likeSection">
-        <div>Likes:</div>
+        <div className="card-text">Likes:</div>
         <div>{likes}</div>
       </div>
       

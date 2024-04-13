@@ -9,7 +9,7 @@ import { userData } from "../../app/slices/userSlice";
 export const Post = () => {
    
     const { credentials } = useSelector(userData);
-    console.log(credentials) // esto es correcto, contiene token y user con dentro userId.
+    
     const dataUser = JSON.parse(localStorage.getItem("passport"));
     const [write, setWrite] = useState("disabled");
     const [isCreating, setIsCreating] = useState(false);
@@ -36,6 +36,7 @@ export const Post = () => {
 
     const creatingPost = async () => {
         setIsCreating(true);
+      
 
         if (post.title.length > 25 || post.text.length > 300) {
             console.error("Title or description is too long");
@@ -50,6 +51,10 @@ export const Post = () => {
                 image: post.image,
                 userId: userId
             };
+
+            console.log(post.text)
+            console.log(post.title)
+
             const response = await createPost(token, post);
           
             if (response.success) {
