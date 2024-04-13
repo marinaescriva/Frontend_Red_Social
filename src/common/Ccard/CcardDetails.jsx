@@ -10,7 +10,7 @@ export const CardDetail = ({
 }) => {
 
   return (
-    <div className="feed-pannel">
+    <div className="feed-pannel-detail">
      
       <div className="card-title-detail ">{title}</div>
       <div className="card-nick-detail ">{nick}</div>
