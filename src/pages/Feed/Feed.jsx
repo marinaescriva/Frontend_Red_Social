@@ -39,9 +39,9 @@ const goDetail = (postId) => {
 
   return (
     <div className='feed-design'>
-     
-      <h4>Your feed</h4>
-      <div>
+      
+      <div className='feed-carrousel'>
+
         {posts && posts.length > 0 ? (
           posts.map(post => {
             const arrayLikes = post.likes
@@ -65,6 +65,7 @@ const goDetail = (postId) => {
           <div>No hay posts</div>
         )}
       </div>
+      
     </div>
    
   );

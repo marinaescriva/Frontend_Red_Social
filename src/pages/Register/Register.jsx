@@ -80,6 +80,7 @@ export const Register = () => {
         <>
             <div className='register-design'>
                 <div className='register-pannel'>
+                <div>Lets be friends!</div>
                     <Cinput
                         type="text"
                         name="name"
@@ -102,7 +103,7 @@ export const Register = () => {
                     <Cinput
                         type="password"
                         name="password"
-                        placeholder="passsword"
+                        placeholder="password"
                         value={user.password || ""}
                         changeEmit={inputHandler}
 
