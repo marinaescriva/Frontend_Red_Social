@@ -3,11 +3,34 @@
     height: 88vh;
     width: 100vw;
 
-    background-color: rgb(230, 254, 233);
+    color: #702553;
+    font-size: 3em;
+    font-display:initial;
+    font-family: 'natural medium';
+
+    /* colores:
+
+193F23
+417D4F
+7C7242
+B2A77F
+C6C4B9
+702553
+A43880 */
+
+    background-image: url('../../img/fondo-Home.png');
+    background-color: #C6C4B9;
+
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
+
+
+
 

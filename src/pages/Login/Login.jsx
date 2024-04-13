@@ -60,7 +60,7 @@ export const Login = () => {
     return (
         <div className="login-desing">
             <div className='login-pannel'>
-
+                <div>Please enter your credentials</div>
           
                 <Cinput 
                     type="email"

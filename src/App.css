@@ -4,3 +4,15 @@
   padding: 0;
   text-align: center;
 }
+@font-face {
+  font-family: 'natural medium';
+  src: url('./img/fonts/ShantellSans-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'natural bold';
+  src: url('./img/fonts/ShantellSans-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'natural light';
+  src: url('./img/fonts/ShantellSans-Light.ttf') format('truetype');
+}
