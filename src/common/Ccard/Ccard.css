@@ -1,4 +1,42 @@
-/* .like-button{
+.feed-pannel {
+
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 2em;
+    height: auto;
+    width: 33vw;
+
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.card-title{
+    color: #702553;
+    font-size: 0.7em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-nick{
+    color: #37b106;
+    font-size: 0.7em;
+    font-family: 'natural light';
+    padding: 0.2em;
+}
+
+.card-img{
+
+    width: 22vw;
+    padding: 0.3em;
+   
+}
+
+
+.like-button{
   
     width: 11vw;
     height: 12vh;
@@ -44,12 +82,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin: 0.2;
 }
-.profile-img{
 
-    width: 22vw;
-    padding: 0.3em;
-   
-} */
+
+

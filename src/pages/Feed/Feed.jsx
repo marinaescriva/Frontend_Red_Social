@@ -39,7 +39,7 @@ const goDetail = (postId) => {
 
   return (
     <div className='feed-design'>
-      
+      Your feed
       <div className='feed-carrousel'>
 
         {posts && posts.length > 0 ? (

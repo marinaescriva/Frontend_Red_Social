@@ -3,7 +3,7 @@ export const Card = ({
   title,
   nick,
   image,
-  description,
+  text,
   ownerId,
   likes,
   clickFunction,
@@ -13,10 +13,10 @@ export const Card = ({
   return (
     <div className="feed-pannel">
      
-      <div className="feed-img">{title}</div>
-      <div className="feed-img4">{nick}</div>
-      <div className="feed-img2">{description}</div>
-      <div className="profile-img">{image}</div>
+      <div className="card-title">{title}</div>
+      <div className="card-nick">{nick}</div>
+      <div className="card-text">{text}</div>
+      <div className="card-img">{image}</div>
       <button className="detail-button" onClick={() => detailFunction()}> </button>
 
       <div className="likeSection">
