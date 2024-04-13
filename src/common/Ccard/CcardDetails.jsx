@@ -12,18 +12,18 @@ export const CardDetail = ({
   return (
     <div className="feed-pannel">
      
-      <div className="feed-img">{title}</div>
-      <div className="feed-img4">{nick}</div>
-      <div className="feed-img2">{text}</div>
-      <div className="profile-img">{image}</div>
+      <div className="card-title-detail ">{title}</div>
+      <div className="card-nick-detail ">{nick}</div>
+      <div className="card-text-detail ">{text}</div>
+      <div className="card-img-detail ">{image}</div>
 
-      <div className="likeSection">
-        <div>Likes:</div>
-        <div>{likes}</div>
+      <div className="likeSection-detail ">
+        <div className="card-text-detail ">Likes:</div>
+        <div className="card-text-detail ">{likes}</div>
       </div>
       
       <div> 
-      <div className="detail-button-feed" onClick={() => clickFunction()}></div>
+      <div className="detail-button-detail" onClick={() => clickFunction()}></div>
       </div>
 
       </div>

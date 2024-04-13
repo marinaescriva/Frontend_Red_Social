@@ -20,7 +20,7 @@ export const Card = ({
 
       <div className="likeSection">
         <div className="card-text">Likes:</div>
-        <div>{likes}</div>
+        <div className="card-text">{likes}</div>
       </div>
       
       <div> 

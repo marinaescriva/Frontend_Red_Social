@@ -1,33 +1,51 @@
-.like-button{
-    /* background-color: blueviolet; */
-    width: 11vw;
-    height: 12vh;
-    background-color: #b2a77f00;
-    border-color: #b2a77f00;
-    transition: 0.3s;
-    margin-top: 2em;
-    /* Agregar imagen de fondo */
-    background-image: url('../../img/boton_likes-11.png');
-    /* Ajustar tamaño y posición de la imagen */
-    background-size:contain;
-    background-position: center;
-    background-repeat: no-repeat;
+
+.feed-pannel-detail  {
+
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 2em;
+    height: auto;
+    width: 33vw;
+
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.like-button:hover{
-/* 
-    background-color: rgb(221, 191, 248); */
-    cursor:pointer;
-    transition: 0.3s;
-    background-image: url('../../img/boton_likes-10.png');
-   
+.card-title-detail {
+    color: #702553;
+    font-size: 1.4em;
+    font-family: 'natural medium';
+    padding: 0.2em;
 }
-.detail-button-feed{
+
+.card-nick-detail  {
+    color:  #702553;
+    font-size: 1.2em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-text-detail {
+    color: #7C7242;
+    font-size: 1em;
+    font-family: 'natural light';
+    padding: 0.2em;
+}
+
+.card-img-detail  {
+    width: 22vw;
+    padding: 0.3em;
+}
+
+.detail-button-detail  {
     width: 11vw;
     height: 12vh;
     background-image: url('../../img/detailOntoOFF.png');
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #b2a77f00;
@@ -35,22 +53,43 @@
     transition: 0.3s;
     margin-top: 2em;
 }
-.detail-button-feed:hover{
+
+.detail-button-detail:hover {
     background-image: url('../../img/detailOfftoOn.png');
-    cursor:pointer;
+    cursor: pointer;
 }
-.likeSection {
+
+
+.like-button-detail  {
+
+    width: 11vw;
+    height: 12vh;
+    background-color: #b2a77f00;
+    border-color: #b2a77f00;
+    transition: 0.3s;
+    margin-top: 2em;
+
+    background-image: url('../../img/boton_likes-11.png');
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.like-button-detail:hover {
+
+    cursor: pointer;
+    transition: 0.3s;
+    background-image: url('../../img/boton_likes-10.png');
+
+}
+
+.likeSection-detail  {
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin: 0.2;
-}
-.profile-img{
-
-    width: 22vw;
-    padding: 0.3em;
-   
 }

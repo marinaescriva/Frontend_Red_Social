@@ -22,14 +22,23 @@
 }
 
 .card-nick {
-    color: #37b106;
+    color:  #702553;
     font-size: 0.7em;
     font-family: 'natural light';
     padding: 0.2em;
 }
+    /* colores:
+
+193F23
+417D4F
+7C7242
+B2A77F
+C6C4B9
+702553
+A43880 */
 
 .card-text {
-    color: #99009b;
+    color: #7C7242;
     font-size: 0.7em;
     font-family: 'natural light';
     padding: 0.2em;
@@ -92,3 +101,15 @@
     align-items: center;
     margin: 0.2;
 }
+
+
+
+    /* colores:
+
+193F23
+417D4F
+7C7242
+B2A77F
+C6C4B9
+702553
+A43880 */

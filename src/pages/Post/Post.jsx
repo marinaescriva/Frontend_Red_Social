@@ -79,7 +79,7 @@ export const Post = () => {
     };
 
     return (
-        <div className="Post-design"> soy el post nuevo
+        <div className="Post-design">
             <div className='post-pannel'>
 
 

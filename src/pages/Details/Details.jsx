@@ -50,8 +50,9 @@ export const Detail = () => {
 
     return (
         <>
-            <div className="Details-design"> soy el post en detalle
-                <div className='post-pannel'>
+            <div className="Details-design"> 
+            
+                <div className='detail-carrousel'>
                     {thisPost && (
                         <CardDetail
                             key={thisPost._id}
