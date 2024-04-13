@@ -44,7 +44,7 @@ export const Profile = () => {
   })
 
   const inputHandler = (e) => {
-    const { name , value} = e.target;
+    const { name, value } = e.target;
     setUser((prevState) => ({
       ...prevState,
       [name]: value
@@ -64,8 +64,8 @@ export const Profile = () => {
   useEffect(() => {
 
     if (!token) {
-      navigate("/") 
-    
+      navigate("/")
+
     }
 
   }, [token])
@@ -73,9 +73,9 @@ export const Profile = () => {
   useEffect(() => {
     const getmyProfile = async () => {
       try {
-       
+
         const fetched = await myProfile(token)
-    
+
         setUser({
           name: fetched.name,
           email: fetched.email,
@@ -95,7 +95,7 @@ export const Profile = () => {
   const updateData = async () => {
 
     try {
-      
+
       const updatedUser = {
         ...user,
         name: user.name
@@ -159,12 +159,14 @@ export const Profile = () => {
     <>
       <div className="profile-design">
 
-      <ClinkPost 
-      path={"/post"}
-      title={"new post"}>
-      </ClinkPost>
+        <ClinkPost
+          path={"/post"}
+          title={"new post"}>
+        </ClinkPost>
+
         <>
-          <div className="profile-cards">
+
+          <div className="edit-profile">
             <CinputProfile
               type="text"
               name="name"
@@ -195,8 +197,9 @@ export const Profile = () => {
             />
 
           </div>
+
         </>
-        <div className="profile-cards">
+        <div>
           {loadedData && myPosts.length > 0
 
             ? (
@@ -211,13 +214,14 @@ export const Profile = () => {
                     <div >{post.image && <img className='card-img-profile' src={post.image} alt="posts image"></img>}</div>
                     <div className='card-text-profile'>{arrayLikes.length} </div>
                     <div className='card-nick-profile'>{post.nick} </div>
+                    <div className="deleteSection-profile">
 
-                    <CButton
-                      className={'CButtonDesign'}
-                      title={`Delete post `}
-                      functionEmit={() => deletingPosts(post._id)}
-                    />
-
+                      <CButton
+                        className={'CButtonDesign'}
+                        title={`Delete post `}
+                        functionEmit={() => deletingPosts(post._id)}
+                      />
+                    </div>
                   </div>
                 )
               })

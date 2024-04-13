@@ -12,28 +12,26 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     overflow-x: hidden;
     overflow-y: scroll;
-    color:whitesmoke;
-
-}
-
-.disabled {
-
-    background-color: aqua;
-}
-
-.profile-carrousel{
     
-    height: auto;
-    width: 100vw;
 
-    display: flex;
-    justify-content:center;
-    flex-direction: column;
+}
+.edit-profile{
+
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 3em;
+    min-height: 30vh;
+    width: 20vw;
+
+    margin: 1em;
+   
+    display:grid;
+    justify-content: center;
     align-items: center;
-    
+    flex-direction: column;
+
 }
 
 .profile-pannel{
@@ -44,8 +42,45 @@
 
     margin: 1em;
 
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+.card-title-profile {
+    color: #702553;
+    font-size: 1.4em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-nick-profile  {
+    color:  #702553;
+    font-size: 1.2em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-text-profile {
+    color: #7C7242;
+    font-size: 1em;
+    font-family: 'natural light';
+    padding: 0.2em;
+}
+
+.card-img-profile  {
+    width: 22vw;
+    padding: 0.3em;
+}
+
+
+.deleteSection-profile  {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2;
 }
