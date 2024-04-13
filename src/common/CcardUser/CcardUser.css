@@ -9,89 +9,47 @@
     margin: 0.2;
 }
 
-.feed-pannel2 {
- 
-    background-color: rgba(165, 118, 46, 0.379); 
-    border-radius: 3em;
-    min-height: 30vh;
-    width: 60vw;
 
-    margin: 1em;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-
-}
-
-.profile-img{
-
-    width: 22vw;
-    padding: 0.3em;
+.admin-user-name{
   
-   
-}
-
-.user_2{
-  
-    color: #000000;
-    background-color: cadetblue;
-    width: auto;
-    /* background-color: #b2a77f52; */
+    color: #702553;
+    height: 10vh;
+    width: 40vw;
     padding: 1em;
-
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 11pt;
-
-    border-radius: 1em;
-    transition: 0.2s;
-}
-
-.user_3{
-  
-    color: #000000;
-    background-color: rgba(83, 76, 42, 0.769);
-    width: auto;
-    /* background-color: #b2a77f52; */
-  
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12pt;
-
-    border-radius: 2em;
-    transition: 0.2s;
-}
-
-.feed-img {
-    color:rgb(178, 0, 0);
-    width: 32vw;
-    /* background-color: #b2a77f52; */
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12pt;
-    padding: 1em;
+    color: #702553;
+    font-size: 1.4em;
+    font-family: 'natural medium';
    
-    border-radius: 2em;
-    transition: 0.2s;
 }
+
+.admin-user-email{
+  
+    color: #702553;
+    height: 10vh;
+    width: 40vw;
+    padding: 1em;
+    text-align: center;
+    color: #702553;
+    font-size: 1em;
+    font-family: 'natural medium';
+   
+}
+
 .delete-button{
-    /* background-color: blueviolet; */
-    width: 11vw;
-    height: 12vh;
+  
+    height: 10vh;
+    width: 40vw;
+    
     background-color: #b2a77f00;
     border-color: #b2a77f00;
     transition: 0.3s;
-    margin-top: 2em;
-    /* Agregar imagen de fondo */
+   
     background-image: url('../../img/predelete.png');
-    
-    /* Ajustar tamaño y posición de la imagen */
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
 }
 
 .delete-button:hover{

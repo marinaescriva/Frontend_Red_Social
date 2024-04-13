@@ -163,7 +163,6 @@ export const Profile = () => {
           path={"/post"}
           title={"new post"}>
         </ClinkPost>
-
         <>
 
           <div className="edit-profile">

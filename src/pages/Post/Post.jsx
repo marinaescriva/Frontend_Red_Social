@@ -80,7 +80,8 @@ export const Post = () => {
 
     return (
         <div className="Post-design">
-            <div className='post-pannel'>
+           <div className="new-post-text">  Create a new post here </div>
+            <div className="new-post-pannel">
 
 
                 <CinputProfile
@@ -109,9 +110,8 @@ export const Post = () => {
                     functionChange={(e) => inputHandler(e)}
                 />
 
-
                 <CButton
-                    className={write === "" ? "CButtonDesign2 CButtonDesign" : "CButtonDesign"}
+                    className={write === "" ? "button-new-post" : "button-new-post"}
                     title={write === "" ? "Confirm" : "New"}
                     functionEmit={write === "" ? creatingPost : () => setWrite("")}
                 />

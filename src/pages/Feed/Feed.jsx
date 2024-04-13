@@ -51,7 +51,7 @@ const goDetail = (postId) => {
               key={post._id}
               title={post.title}
               nick={post.nick.name}
-              image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
+              image={post.image && <img className='admin-post-img' src={post.image} alt="posts image"></img>}
               likes={arrayLikes.length}
               clickFunction={() => doLike(post._id) }
               detailFunction={()=> goDetail(post._id)}

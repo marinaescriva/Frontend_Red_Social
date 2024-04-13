@@ -1,40 +1,77 @@
-.delete-button{
-    /* background-color: blueviolet; */
-    width: 11vw;
-    height: 12vh;
-    background-color: #b2a77f00;
-    border-color: #b2a77f00;
-    transition: 0.3s;
-    margin-top: 2em;
-    /* Agregar imagen de fondo */
-    background-image: url('../../img/predelete.png');
+
+.profile-design {
+    height: 88vh;
+    width: 100vw;
     
-    /* Ajustar tamaño y posición de la imagen */
-    background-size:contain;
+    background-image: url('../../img/fondo-detail-2-10.png');
+    background-color: #C6C4B9;
+
+    background-size:cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+
+}
+.edit-profile{
+
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 3em;
+    min-height: 30vh;
+    width: 20vw;
+
+    margin: 1em;
+   
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
 
-.delete-button:hover{
-/* 
-    background-color: rgb(221, 191, 248); */
-    
-    transition: 0.3s;
-    background-image: url('../../img/deleted.png');
-  
+.admin-post-title {
+    color: #702553;
+    font-size: 1em;
+    font-family: 'natural medium';
+    padding: 0.2em;
 }
-.likeSection {
+
+.admin-post-nick {
+    color:  #702553;
+    font-size: 1.2em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.admin-post-text {
+    color: #7C7242;
+    font-size: 0.8em;
+    font-family: 'natural light';
+    padding: 0.2em;
+}
+
+.admin-post-img  {
+    width: 22vw;
+    padding: 0.3em;
+}
+
+.admin-all-posts{
+
+    width: auto;
+}
+
+
+.deleteSection-profile  {
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     margin: 0.2;
-}
-.profile-img{
-
-    width: 22vw;
-    padding: 0.3em;
-   
 }

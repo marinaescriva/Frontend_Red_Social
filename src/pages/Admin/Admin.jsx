@@ -104,14 +104,14 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
 
 
     return (
-        <div className='admin-design'> ADDDMIN
+        <div className='admin-design'> 
             <h4>Your feed</h4>
             <div>
                 {users && users.length > 0 ? (
                     users.map(user => {
                         // const arrayLikes = user.likes
                         return (
-                            <div>
+                            <div className='deleteSection-admin'>
                             <CardUser
                                 key={user._id}
                                 name={user.name}
@@ -132,13 +132,14 @@ if(state?.credentials?.user?.roleName !== "super_admin"){
                     posts.map(post => {
                         const arrayLikes = post.likes
                         return (
-                            <div>
+                            <div className='deleteSection-admin'>
 
                             <CardAdmin
                                 key={post._id}
                                 title={post.title}
+                                text={post.text}
                                 nick={post.nick.name}
-                                image={post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}
+                                image={post.image && <img className='admin-post-img' src={post.image} alt="posts image"></img>}
                                 likes={arrayLikes.length}
                                 deleteFunction={deletingPosts}
                             >

@@ -1,28 +1,34 @@
 import "./Cadmin.css";
 export const CardAdmin = ({
   title,
+  text,
   nick,
   image,
-  description,
   likes,
   deleteFunction,
 }) => {
 
   return (
-    <div className="feed-pannel" onClick={deleteFunction}>
-     
-      <div className="feed-img">{title}</div>
-      <div className="feed-img4">{nick}</div>
-      <div className="feed-img2">{description}</div>
-      <div className="profile-img">{image}</div>
-      <div className="likeSection">
-        <div>Likes:</div>
-        <div>{likes}</div>
-      </div>
-      <div> 
-      <div className="delete-button" onClick={() => deleteFunction}>
+    
+      <div className="admin-pannel">
+
+        <div className="admin-all-posts">
+
+          <div className="admin-post-title">{title}</div>
+          <div className="admin-post-nick">{nick}</div>
+          <div>{image}</div>
+          <div className="admin-post-text">{text}</div>
+
+          <div className="likeSection">
+            <div>Likes:</div>
+            <div>{likes}</div>
+          </div>
+          <div>
+            <div className="delete-button" onClick={() => deleteFunction}>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-        )}
+   
+  )
+}

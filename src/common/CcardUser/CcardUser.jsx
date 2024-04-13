@@ -4,19 +4,23 @@ export const CardUser = ({
   name,
   email,
   deleteFunction
-  
+
 }) => {
 
   return (
-    <div className="feed-pannel2" >
-     
+    <div className="admin-pannel" >
 
-      <div className="user_2">{name}</div>
-      <div className="user_3">{email}</div>
-      <div> 
-      <div className="delete-button" onClick={() => deleteFunction}> </div>
+
+      <div className="admin-user-name">{name}</div>
+      <div className="admin-user-email">{email}</div>
+
+      <div className="deleteSection-admin">
+        <div className="delete-button">
+          <div onClick={() => deleteFunction}> </div>
+        </div>
       </div>
-
+      
     </div>
 
-        )}
+  )
+}
