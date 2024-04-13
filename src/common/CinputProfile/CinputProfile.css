@@ -6,3 +6,82 @@
     background-color: whitesmoke;
     border-radius: 2em;
 }
+
+.card-title-profile {
+    color: #702553;
+    font-size: 1.4em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-nick-detail  {
+    color:  #702553;
+    font-size: 1.2em;
+    font-family: 'natural medium';
+    padding: 0.2em;
+}
+
+.card-text-detail {
+    color: #7C7242;
+    font-size: 1em;
+    font-family: 'natural light';
+    padding: 0.2em;
+}
+
+.card-img-detail  {
+    width: 22vw;
+    padding: 0.3em;
+}
+
+.detail-button-detail  {
+    width: 11vw;
+    height: 12vh;
+    background-image: url('../../img/detailOntoOFF.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #b2a77f00;
+    border-color: #b2a77f00;
+    transition: 0.3s;
+    margin-top: 2em;
+}
+
+.detail-button-detail:hover {
+    background-image: url('../../img/detailOfftoOn.png');
+    cursor: pointer;
+}
+
+
+.like-button-detail  {
+
+    width: 11vw;
+    height: 12vh;
+    background-color: #b2a77f00;
+    border-color: #b2a77f00;
+    transition: 0.3s;
+    margin-top: 2em;
+
+    background-image: url('../../img/boton_likes-11.png');
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.like-button-detail:hover {
+
+    cursor: pointer;
+    transition: 0.3s;
+    background-image: url('../../img/boton_likes-10.png');
+
+}
+
+.likeSection-detail  {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2;
+}

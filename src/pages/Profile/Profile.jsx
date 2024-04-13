@@ -28,14 +28,9 @@ export const Profile = () => {
   }, [state])
 
 
-
-
-  //////////////TRAER MY PROFILE
-
   const dataUser = JSON.parse(localStorage.getItem("passport"));
   const [write, setWrite] = useState("disabled");
-  //   const [tokenStorage, setTokenStorage] = useState (dataUser?.token)
-  // console.log(dataUser)
+
   const [user, setUser] = useState({
     name: "",
     surname: "",
@@ -120,9 +115,6 @@ export const Profile = () => {
     }
   }
 
-  ////////////// TRAER MY POSTS
-
-  // const [loadedData, setLoadedData] = useState(true); //quite el false
   const [myPosts, setMyPosts] = useState([]);
 
   useEffect(() => {
@@ -155,9 +147,6 @@ export const Profile = () => {
 
       if (fetched.success) {
         setMyPosts(posts.filter(item => item._id !== postId))
-
-        // const update = getMyOwnPost (fetched)
-        // setPosts(update)
 
       }
     } catch (error) {
@@ -217,11 +206,11 @@ export const Profile = () => {
 
                   <div key={post.id} className='profile-pannel'>
 
-                    <div className='profile-img'>{post.text} </div>
-                    <div className='profile-img2'>{post.title}</div>
-                    <div >{post.image && <img className='profile-img' src={post.image} alt="posts image"></img>}</div>
-                    <div className='profile-img3'>{arrayLikes.length} </div>
-                    <div className='profile-img4'>{post.nick} </div>
+                    <div className='card-title-profile'>{post.title}</div>
+                    <div className='card-text-profile'>{post.text} </div>
+                    <div >{post.image && <img className='card-img-profile' src={post.image} alt="posts image"></img>}</div>
+                    <div className='card-text-profile'>{arrayLikes.length} </div>
+                    <div className='card-nick-profile'>{post.nick} </div>
 
                     <CButton
                       className={'CButtonDesign'}
