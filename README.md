@@ -1,14 +1,18 @@
 # 🌿 Be Plant Friendly 🌿
 
-![Home Background](./src/img/fondo-Home.png)
+![Home Background](./src/img/fondo-Home%20-%20copia.png)
+
 
 Welcome to the frontend of our social network designed to connect people who love plants and nature! 🌱🌸
 
-This frontend is closely integrated with the [Backend-redsocial-hi-its-me](https://github.com/marinaescriva/Backend-redsocial-hi-its-me), providing a seamless experience for plant enthusiasts.
+
+This frontend is closely integrated with the [Backend-social-network](https://github.com/marinaescriva/Backend-redsocial-hi-its-me), providing a seamless experience for plant enthusiasts.
 
 ## About
 
 This repository contains the frontend code for a social network application. The application allows users to register, log in, post content, interact with other users' posts, and more.
+
+![Home Background](./src/img/readme_home.jpg)
 
 ## Key Features
 
@@ -96,4 +100,11 @@ This project was developed by Marina Escrivá.
 
 ## Acknowledgments
 
-Thanks to my partners and friends who solved my doubts and supported my ideas.
+Thanks to my partners and friends who solved my doubts and supported my ideas. <3 Especially to:
+
+- [Marta](https://github.com/MartaGBayona)
+- [Fran](https://github.com/FRR95)
+- [Ana](https://github.com/ariusvi)
+- [Victor](https://github.com/VictorBlasco5)
+- [Fernando](https://github.com/FernandoCatalaMunyoz)
+- [Pedro](https://github.com/Eryhnar) 
