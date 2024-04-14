@@ -59,7 +59,7 @@ export const Detail = () => {
                             title={thisPost.title}
                             nick={thisPost.nick.name}
                             text={thisPost.text}
-                            image={thisPost.image && <img className='profile-img' src={thisPost.image} alt="posts image"></img>}
+                            image={thisPost.image && <img className='card-img-detail' src={thisPost.image} alt="posts image"></img>}
                             likes={thisPost.likes.length}
                             clickFunction={() => goFeed()}
                         ></CardDetail>
