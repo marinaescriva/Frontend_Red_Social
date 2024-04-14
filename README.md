@@ -1,52 +1,67 @@
-# 🌿 Be plant friendly 🌿
+# 🌿 Be Plant Friendly 🌿
 
-Welcome to the social network frontend designed to connect people who love plants and nature! 🌱🌸
+![Home Background](./src/img/fondo-Home.png)
 
-This frontend is tightly integrated with the [Backend-redsocial-hi-its-me](https://github.com/marinaescriva/Backend-redsocial-hi-its-me), providing a seamless experience for plant enthusiasts.
+Welcome to the frontend of our social network designed to connect people who love plants and nature! 🌱🌸
+
+This frontend is closely integrated with the [Backend-redsocial-hi-its-me](https://github.com/marinaescriva/Backend-redsocial-hi-its-me), providing a seamless experience for plant enthusiasts.
 
 ## About
 
-This is the frontend repository for a social network application. The application allows users to register, log in, post content, interact with other users' posts, and more.
+This repository contains the frontend code for a social network application. The application allows users to register, log in, post content, interact with other users' posts, and more.
 
 ## Key Features
 
 - 🌱 **User Registration**: Users can register by providing their basic information.
 
->Register:
->> name: "Manuel"
-email: "Manuel_34@hotmail.com"
-password: "between 6 - 10 characters"
+  > Register:
+  > - Name: "Manuel"
+  > - Email: "Manuel_34@hotmail.com"
+  > - Password: "between 6 - 10 characters"
 
+  ![Registration](./src/img/readme_register.jpg)
 
 - 🌼 **Login**: Users can log in using their email and password.
 
->Login by super-admin:
->> email : "super_admin@super_admin.com"
-password: "123456"
+  > Super-admin login:
+  > - Email: "super_admin@super_admin.com"
+  > - Password: "123456"
+  
+  > User login:
+  > - Email: "SS@gmail.com"
+  > - Password: "123456"
 
->Login by user:
->> email : "SS@gmail.com"
-password: "123456"
+  ![Login](./src/img/readme_login.jpg)
 
 - 🌸 **Content Posting**: Users can create and share posts with text and images.
 
->Login by user:
->> email : "SS@gmail.com"
-password: "123456"
+  > Create new post:
+  > - Title: "This is the new title"
+  > - Text: "Insert text or description here"
+  > - Image URL: "Insert a URL"
 
-- 🌻 **Social Interaction**: Users can interact with other users' posts through comments and likes.
+  ![Create New Post](./src/img/readme_new.jpg)
 
+- 🌻 **Social Interaction**: Users can interact with other users' posts through likes. Users can view a post's detail by clicking on the leaf icon.
 
->Login by user:
->> email : "SS@gmail.com"
-password: "123456"
+  > Like a post on Feed:
+  > - Press the flower button to give a new like or dislike a liked post.
 
-- 🌱 **User Profile**: Each user has a profile where they can view and edit their personal information and posts.
+  Feed view:
+  ![Feed View](./src/img/readme_feed.jpg)
+  ![Feed View 2](./src/img/readme_feed2.jpg)
 
+  Detail view:
+  ![Detail View](./src/img/readme_detail.jpg)
 
->Login by user:
->> email : "SS@gmail.com"
-password: "123456"
+- 🌱 **User Profile**: Each user has a profile where they can view and edit their personal information, delete their own posts, or create a new one.
+
+  > Update your profile and delete posts:
+  > - Field that can be updated: "name"
+  > - Delete a post by pressing the delete button
+
+  ![Profile View 1](./src/img/readme_profile1.jpg)
+  ![Profile View 2](./src/img/readme_profile2.jpg)
 
 ## Technologies Used
 
@@ -56,14 +71,14 @@ password: "123456"
 - 🌳 **Redux**: For managing the state of the application.
 - 🌱 **Axios**: For making HTTP requests to the backend.
 - 🌸 **React Router**: For navigation within the application.
-- 🌿 **Material-UI**: For pre-styled and customized UI components.
+- 🌿 **Adobe Illustrator and Photoshop**: For designing customized UI components like buttons or background wallpapers.
 
 ## Installation
 
-1. Clone this repository to your local machine using `git clone`.
+1. Clone this repository to your local machine using `git clone`. Don't forget to clone the backend repository as well and run it with `npm run dev`.
 2. Navigate to the project directory.
 3. Run `npm install` to install all dependencies.
-4. Run `npm start` to start the development server.
+4. Run `npm run dev` to start the development server.
 5. Open your web browser and visit `http://localhost:4000` to see the application in action.
 
 ## Contribution
@@ -79,4 +94,6 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 This project was developed by Marina Escrivá.
 
+## Acknowledgments
 
+Thanks to my partners and friends who solved my doubts and supported my ideas.
